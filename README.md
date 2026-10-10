@@ -21,8 +21,9 @@ Intelligent Hostel Counselling & Allocation System (IHCAS) is a full-stack hoste
 - **Phase 1: Relational Database Design** - ✅ Complete
 - **Phase 2: Backend Foundation** - ✅ Complete
 - **Phase 3: Authentication and User Data** - ✅ Complete
-- **Phase 4: Hostel Inventory and Availability** - ✅ Complete (Hostels, Rooms, Room Types, Availability Calculation, Warden Scopes)
-- **Phase 5-8: Business Logic & Dashboards** - ❌ Not Started
+- **Phase 4: Hostel Inventory and Availability** - ✅ Complete
+- **Phase 5: Counselling Queue and Sessions** - ✅ Complete (Session config, Queue priority, Server-side timeout)
+- **Phase 6-8: Business Logic & Dashboards** - ❌ Not Started
 - **Phase 9: AI Integration** - ❌ Deferred until after Phase 12
 - **Phase 10-12: Frontend, Hardening, Deployment** - ❌ Not Started
 
@@ -249,7 +250,24 @@ flowchart TD
 - **Method & Path:** `POST /api/inventory/rooms` (Admin only)
 - **Method & Path:** `PUT /api/inventory/rooms/:id` (Admin, or Warden if room belongs to Warden's assigned hostel)
 
-*(Business endpoints such as counselling are planned for future phases).*
+#### 10. Counselling Session Config
+- **Method & Path:** `POST /api/counselling/sessions`
+- **Purpose:** Create a new counselling session.
+- **Authentication:** Admin only.
+
+#### 11. Slot Generation
+- **Method & Path:** `POST /api/counselling/sessions/:id/generate-slots`
+- **Purpose:** Dynamically populate counselling queue ordered by `academic_rank` ASC, `cgpa` DESC for all students without a confirmed/locked allocation.
+- **Authentication:** Admin only.
+
+#### 12. Student Queue Status & Activation
+- **Method & Path:** `GET /api/counselling/status`
+- **Purpose:** Fetches current slot status and exact queue position. Actively detects and expires (returns to ready queue) slots that have passed their 3-minute deadline.
+- **Authentication:** Student only.
+- **Method & Path:** `POST /api/counselling/activate`
+- **Purpose:** Starts the 3-minute counselling session. Validates that the student is front-of-queue or their original scheduled time has passed. Protects against duplicate sessions and concurrent race conditions.
+
+*(Business endpoints such as actual room allocations are planned for future phases).*
 
 ## G. Database Documentation
 - **MySQL & InnoDB**: Chosen for standard relational constraints and transaction safety.

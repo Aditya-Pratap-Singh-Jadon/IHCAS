@@ -42,8 +42,12 @@ This document tracks the completion status of the IHCAS project based on the pha
 - **Done:** Enforced gender-based eligibility directly within the SQL queries, ensuring Students only see hostels that match their gender.
 
 ## Phase 5: Counselling Session and Slot Management
-**Status:** ❌ Not Started
-- Pending session configuration and slot APIs.
+**Status:** ✅ Completed
+- **Done:** Admin API (`POST /api/counselling/sessions`) implemented to configure counselling sessions (dates, defaults).
+- **Done:** Admin API (`POST /api/counselling/sessions/:id/generate-slots`) implemented to dynamically generate rank-ordered (`academic_rank ASC, cgpa DESC, student_id ASC`) slots for all students lacking a confirmed/locked allocation. Included a deterministic tie-breaker on `student_id` for exact rank/CGPA matches.
+- **Done:** Student API (`GET /api/counselling/status`) implemented to accurately calculate dynamic queue position, skipping higher-rank students who have already completed their sessions.
+- **Done:** Student API (`POST /api/counselling/activate`) safely starts a 3-minute session utilizing `FOR UPDATE` locking to prevent race conditions or duplicate activation clicks.
+- **Done:** Robust Server-Side Timeout: A lightweight global cleaner acts passively during API polling (`checkAndExpireSlot`), aggressively expiring any `ACTIVE` session that missed its `end_time`. Instead of allocating a room, the system returns the student to the ready queue (`PENDING`) seamlessly, preserving their exact original `academic_rank` priority.
 
 ## Phase 6: Allocation Engine and Roommate Verification
 **Status:** ❌ Not Started

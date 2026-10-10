@@ -99,8 +99,23 @@
 - **Phase Status**: COMPLETE.
 
 ### Next Phase and Prerequisites
-- **Next Phase**: Phase 5 (Counselling Queue and Sessions).
-- **Prerequisites**: Phase 4 (Hostel Inventory) is complete. The system has reliable room capacity calculations, gender eligibility enforcements, and Warden authorization scopes.
+- **Next Phase**: Phase 6 (Allocation Engine and Roommate Verification).
+- **Prerequisites**: Phase 5 (Counselling Queue and Sessions) is complete. The system has reliable queues ordered by academic rank, and sessions are properly gated by a server-enforced 3-minute timeout which reverts students to the ready queue upon expiry.
+
+### Phase 5: Counselling Queue and Sessions
+- **Date**: 2026-10-11
+- **Scope**: Implemented admin session configuration, dynamic rank-based slot generation, and a student queue lobby. Added robust server-side expiry checking returning students to the ready queue with their original priority preserved. Prevented duplicate active sessions and handled race conditions with SQL row locking.
+- **Files Modified/Created**:
+  - `ihcas/backend/src/app.js`
+  - `ihcas/backend/src/modules/counselling/counselling.controller.js`
+  - `ihcas/backend/src/modules/counselling/counselling.routes.js`
+  - `ihcas/backend/src/modules/counselling/counselling.schema.js`
+  - `ihcas/backend/tests/integration/counselling.test.js`
+- **Commands Executed**: `mkdir -p src/modules/counselling`, `npm test`
+- **Tests Executed**: Admin creates session and slots ordered by rank. Student retrieves position based on `academic_rank` and `cgpa`. Session activation respects queue pos. Timeout detection automatically flips status back to `PENDING` without losing priority. Concurrent requests fail safely.
+- **Status**: PASS
+- **Known limitations**: No realtime WebSocket/SSE implementation; students must poll the status endpoint or rely on frontend timers.
+- **Phase Status**: COMPLETE.
 
 ### Phase 4: Hostel Inventory and Availability
 - **Date**: 2026-10-11
@@ -144,6 +159,9 @@
 | INV-02 | Gender Eligibility Filter | `npm test` | Students only see matching gender | 37 passed | PASS |
 | INV-03 | Warden Hostel Scope | `npm test` | 403 outside Warden's hostel | 37 passed | PASS |
 | INV-04 | Dynamic Availability | `npm test` | Capacity calculates accurately | 37 passed | PASS |
+| CSL-01 | Rank Ordered Slots | `npm test` | Queue ordered by Rank ASC, CGPA DESC | 12 passed | PASS |
+| CSL-02 | Server Side Expiry | `npm test` | Reverts to PENDING and preserves Priority | 12 passed | PASS |
+| CSL-03 | Concurrent Activations | `npm test` | Only one succeeds, second gets 400 | 12 passed | PASS |
 
 ## F. Operational Troubleshooting
 - **Error**: `Failed to connect to MySQL` running `test-db-connection.js`.
