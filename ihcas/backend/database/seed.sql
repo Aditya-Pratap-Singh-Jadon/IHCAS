@@ -1,6 +1,4 @@
 -- seed.sql
-USE ihcas_db;
-
 -- Users
 INSERT INTO USER (name, email, password_hash, role) VALUES 
 ('Admin User', 'admin@univ.edu', 'hashedpassword123', 'ADMIN'),

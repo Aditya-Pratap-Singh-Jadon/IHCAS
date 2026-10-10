@@ -1,6 +1,4 @@
 -- schema.sql
-CREATE DATABASE IF NOT EXISTS ihcas_db;
-USE ihcas_db;
 
 CREATE TABLE USER (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
