@@ -18,13 +18,21 @@ This document tracks the completion status of the IHCAS project based on the pha
 - **Done:** Integration tests run cleanly against a real MySQL instance (`ihcas_test_db`), verifying unique constraints, foreign key referential integrity, and correct transaction rollback behaviors.
 
 ## Phase 2: Backend Foundation
-**Status:** 🏃‍♂️ Started
+**Status:** ✅ Completed
 - **Done:** A database connection pool has been created in `src/config/db.js`.
-- **Pending:** The core Express application setup (`app.js` or `server.js`). Centralized request validation, error handling, authentication middleware, health endpoints, and structured logs.
+- **Done:** The core Express application setup (`src/app.js` and `src/server.js`) handles server initialization, restrictive CORS configuration, and limits.
+- **Done:** Implemented centralized request validation using Zod (`src/middleware/validate.js`), global error handling (`src/middleware/errorHandler.js`) that does not leak internal stacks, and a consistent 404 response.
+- **Done:** Created health endpoints `/api/health` and `/api/health/db` that actively probe the database connection without exposing sensitive strings.
+- **Done:** Full test suite verifying validation logic, environment configuration, DB failure handling, and graceful shutdown routines.
 
 ## Phase 3: Authentication and User Data
-**Status:** ❌ Not Started
-- Pending implementation of login, session/token management, and user data logic.
+**Status:** ✅ Completed
+- **Done:** Secure password hashing implemented with `bcryptjs`.
+- **Done:** Implemented JWT-based session management secured via `HttpOnly` and `SameSite` cookies.
+- **Done:** Login, logout, and token verification flows built with built-in rate-limiting.
+- **Done:** Role-based access control (RBAC) enforced seamlessly using the `requireRole` middleware.
+- **Done:** Profile APIs added allowing users to fetch their current profile (`GET /api/users/me`) and update designated fields (`PUT /api/users/me`), while restricting students from reading others' profiles.
+- **Done:** Admin route implemented ensuring only administrators can lookup arbitrary student profiles (`GET /api/users/:id`).
 
 ## Phase 4: Hostel Inventory and Availability
 **Status:** ❌ Not Started

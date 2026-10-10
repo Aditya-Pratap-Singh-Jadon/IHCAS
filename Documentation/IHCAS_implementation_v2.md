@@ -411,6 +411,8 @@ APIs, not only by hiding navigation items.
 
 ## 13. Phase 9 --- AI Integration
 
+**DEFERRED**: AI integration will happen only after all non-AI application functionality (up to and including Phase 12) has been implemented, integrated, and tested. The application must remain fully usable without AI.
+
 AI is owned by a teammate, so agree on a contract before wiring the UI.
 
 ### Tasks
@@ -598,4 +600,21 @@ allocation integrity tests before polishing every screen.
 - **Database:** MySQL, using InnoDB for transactional tables.
 - **Allocation:** room-level only. IHCAS does not assign beds; roommates decide bed division themselves.
 - **Timeout:** a student whose three-minute slot expires without confirmation returns to the ready queue with their original rank priority. On re-entry, room availability is refreshed.
-- **AI:** the teammate may implement the model/service independently. Integration will use a backend adapter once the interface is agreed; AI is not a blocker for core application development.
+- **AI:** the teammate may implement the model/service independently. Integration will use a backend adapter once the interface is agreed; AI is not a blocker for core application development. AI Integration (Phase 9) is completely deferred until after Phase 12.
+
+## Updated Execution Order
+
+The intended implementation sequence is:
+1. Phase 0 — Repository audit and project setup
+2. Phase 1 — Relational database design
+3. Phase 2 — Backend foundation
+4. Phase 3 — Authentication and user data
+5. Phase 4 — Hostel inventory and availability
+6. Phase 5 — Counselling sessions and slots
+7. Phase 6 — Allocation engine and roommate OTP verification
+8. Phase 7 — Student dashboard and post-allocation features
+9. Phase 8 — Administrator and warden workspaces
+10. Phase 10 — Frontend integration and design QA
+11. Phase 11 — Testing and hardening
+12. Phase 12 — Deployment and operations
+13. Phase 9 — AI integration (only after all non-AI functionality has been completed and tested)
