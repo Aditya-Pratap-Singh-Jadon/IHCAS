@@ -98,6 +98,25 @@
 - **Known limitations**: No email recovery flows or self-registration forms are implemented (assuming institution imports these).
 - **Phase Status**: COMPLETE.
 
+### Next Phase and Prerequisites
+- **Next Phase**: Phase 5 (Counselling Queue and Sessions).
+- **Prerequisites**: Phase 4 (Hostel Inventory) is complete. The system has reliable room capacity calculations, gender eligibility enforcements, and Warden authorization scopes.
+
+### Phase 4: Hostel Inventory and Availability
+- **Date**: 2026-10-11
+- **Scope**: Hostel/Room/RoomType management APIs, role-based authorization for Wardens (limited to their own hostels), student gender filtering, and dynamic calculation of `available_capacity` derived directly from active allocations (status IN `CONFIRMED`, `LOCKED`).
+- **Files Modified/Created**:
+  - `ihcas/backend/src/app.js`
+  - `ihcas/backend/src/modules/inventory/inventory.controller.js`
+  - `ihcas/backend/src/modules/inventory/inventory.routes.js`
+  - `ihcas/backend/src/modules/inventory/inventory.schema.js`
+  - `ihcas/backend/tests/integration/inventory.test.js`
+- **Commands Executed**: `mkdir -p src/modules/inventory`, `npm test`
+- **Tests Executed**: Admin creates Hostels/Rooms/RoomTypes, Student sees gender-appropriate Hostels/Rooms, Warden is restricted to updating only their assigned Hostel's Rooms, Availability calculates accurately based on active DB allocations only.
+- **Status**: PASS
+- **Known limitations**: Warden assignments directly to hostels are currently one-to-one based on the `hostel_id` foreign key on the `WARDEN` table. 
+- **Phase Status**: COMPLETE.
+
 ## E. Test Evidence
 
 | Test ID | Scenario | Command or procedure | Expected result | Actual result | Status |
@@ -117,10 +136,14 @@
 | AUT-01 | Missing Inputs | `npm test` | 400 Validation Error | 25 passed | PASS |
 | AUT-02 | Wrong Credentials | `npm test` | 401 Unauthorized | 25 passed | PASS |
 | AUT-03 | Successful Login | `npm test` | JWT Cookie Set | 25 passed | PASS |
-| AUT-04 | Protected Route | `npm test` | 401 without Cookie | 25 passed | PASS |
-| USR-01 | Fetch Own Profile | `npm test` | 200 with Profile Data | 25 passed | PASS |
-| USR-02 | Admin Override | `npm test` | 200 for Any Student | 25 passed | PASS |
-| USR-03 | RBAC Enforcement | `npm test` | 403 Forbidden | 25 passed | PASS |
+| AUT-04 | Protected Route | `npm test` | 401 without Cookie | 37 passed | PASS |
+| USR-01 | Fetch Own Profile | `npm test` | 200 with Profile Data | 37 passed | PASS |
+| USR-02 | Admin Override | `npm test` | 200 for Any Student | 37 passed | PASS |
+| USR-03 | RBAC Enforcement | `npm test` | 403 Forbidden | 37 passed | PASS |
+| INV-01 | Admin Creates Inventory | `npm test` | 201 Created | 37 passed | PASS |
+| INV-02 | Gender Eligibility Filter | `npm test` | Students only see matching gender | 37 passed | PASS |
+| INV-03 | Warden Hostel Scope | `npm test` | 403 outside Warden's hostel | 37 passed | PASS |
+| INV-04 | Dynamic Availability | `npm test` | Capacity calculates accurately | 37 passed | PASS |
 
 ## F. Operational Troubleshooting
 - **Error**: `Failed to connect to MySQL` running `test-db-connection.js`.

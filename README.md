@@ -14,14 +14,15 @@ Intelligent Hostel Counselling & Allocation System (IHCAS) is a full-stack hoste
 - **Database:** MySQL with InnoDB (Implemented Schema & Setup)
 - **Testing:** Jest, Supertest
 
-**Current Status:** Phase 3 (Authentication and User Data) is Complete.
+**Current Status:** Phase 4 (Hostel Inventory and Availability) is Complete.
 
 ## B. Feature and Phase Status
 - **Phase 0: Repository Audit and Project Setup** - ✅ Complete
 - **Phase 1: Relational Database Design** - ✅ Complete
 - **Phase 2: Backend Foundation** - ✅ Complete
-- **Phase 3: Authentication and User Data** - ✅ Complete (JWT Sessions, Bcrypt, Profile Management, Role-Based Auth)
-- **Phase 4-8: Business Logic & Dashboards** - ❌ Not Started
+- **Phase 3: Authentication and User Data** - ✅ Complete
+- **Phase 4: Hostel Inventory and Availability** - ✅ Complete (Hostels, Rooms, Room Types, Availability Calculation, Warden Scopes)
+- **Phase 5-8: Business Logic & Dashboards** - ❌ Not Started
 - **Phase 9: AI Integration** - ❌ Deferred until after Phase 12
 - **Phase 10-12: Frontend, Hardening, Deployment** - ❌ Not Started
 
@@ -233,7 +234,22 @@ flowchart TD
 - **Authentication:** Required.
 - **Required Role:** `ADMIN`
 
-*(Business endpoints such as hostels and counselling are planned for future phases).*
+#### 7. Inventory: Hostels
+- **Method & Path:** `GET /api/inventory/hostels` (Accessible by all roles; Students only see hostels matching their gender)
+- **Method & Path:** `POST /api/inventory/hostels` (Admin only)
+- **Method & Path:** `PUT /api/inventory/hostels/:id` (Admin only)
+
+#### 8. Inventory: Room Types
+- **Method & Path:** `GET /api/inventory/room-types`
+- **Method & Path:** `POST /api/inventory/room-types` (Admin only)
+
+#### 9. Inventory: Rooms and Availability
+- **Method & Path:** `GET /api/inventory/rooms?hostel_id=1`
+- **Purpose:** Fetches rooms, calculating `occupied_beds` dynamically from active allocations (`CONFIRMED` or `LOCKED`) ensuring accuracy. Returns `available_capacity` and `is_available`. (Filtered by student gender or restricted to Warden's assigned hostel).
+- **Method & Path:** `POST /api/inventory/rooms` (Admin only)
+- **Method & Path:** `PUT /api/inventory/rooms/:id` (Admin, or Warden if room belongs to Warden's assigned hostel)
+
+*(Business endpoints such as counselling are planned for future phases).*
 
 ## G. Database Documentation
 - **MySQL & InnoDB**: Chosen for standard relational constraints and transaction safety.

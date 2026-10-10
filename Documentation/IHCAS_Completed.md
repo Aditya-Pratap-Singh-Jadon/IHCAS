@@ -35,8 +35,11 @@ This document tracks the completion status of the IHCAS project based on the pha
 - **Done:** Admin route implemented ensuring only administrators can lookup arbitrary student profiles (`GET /api/users/:id`).
 
 ## Phase 4: Hostel Inventory and Availability
-**Status:** ❌ Not Started
-- Pending hostel/room management and inventory APIs.
+**Status:** ✅ Completed
+- **Done:** Created endpoints for managing `HOSTEL`, `ROOM_TYPE`, and `ROOM` records (`GET`, `POST`, `PUT`).
+- **Done:** Enforced strict Role-Based Access Control where Admins can manage all records, but Wardens can only update rooms belonging to their implicitly assigned hostel.
+- **Done:** Implemented dynamic capacity calculation where occupied beds are dynamically derived from active allocations (`status IN ('CONFIRMED', 'LOCKED')`).
+- **Done:** Enforced gender-based eligibility directly within the SQL queries, ensuring Students only see hostels that match their gender.
 
 ## Phase 5: Counselling Session and Slot Management
 **Status:** ❌ Not Started
