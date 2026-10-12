@@ -19,34 +19,34 @@ beforeAll(async () => {
   await pool.query("DELETE FROM ROOM");
   await pool.query("DELETE FROM ROOM_TYPE");
   await pool.query("DELETE FROM HOSTEL");
-  await pool.query("DELETE FROM USER WHERE email LIKE '%@invtest.com'");
+  await pool.query("DELETE FROM USER WHERE email LIKE '%@invtest.com' OR email LIKE '%@vit.ac.in' OR email LIKE '%@vitstudent.ac.in'");
 
   const hash = await bcrypt.hash('password123', 10);
 
   // Users
   // 1. Admin
-  const [aRes] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['Admin', 'admin@invtest.com', hash, 'ADMIN']);
+  const [aRes] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['Admin', 'admin_inv@vit.ac.in', hash, 'ADMIN']);
   adminId = aRes.insertId;
   await pool.query('INSERT INTO ADMIN (admin_id, employee_id) VALUES (?, ?)', [adminId, 'ADM_INV']);
-  adminToken = generateToken({ user_id: adminId, role: 'ADMIN', email: 'admin@invtest.com' });
+  adminToken = generateToken({ user_id: adminId, role: 'ADMIN', email: 'admin_inv@vit.ac.in' });
 
   // 2. Warden
-  const [wRes] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['Warden', 'warden@invtest.com', hash, 'WARDEN']);
+  const [wRes] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['Warden', 'warden_inv@vit.ac.in', hash, 'WARDEN']);
   wardenId = wRes.insertId;
   await pool.query('INSERT INTO WARDEN (warden_id, employee_id) VALUES (?, ?)', [wardenId, 'WRD_INV']);
-  wardenToken = generateToken({ user_id: wardenId, role: 'WARDEN', email: 'warden@invtest.com' });
+  wardenToken = generateToken({ user_id: wardenId, role: 'WARDEN', email: 'warden_inv@vit.ac.in' });
 
   // 3. Male Student
-  const [msRes] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['Male Student', 'male@invtest.com', hash, 'STUDENT']);
+  const [msRes] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['Male Student', 'male_inv@vitstudent.ac.in', hash, 'STUDENT']);
   maleStudentId = msRes.insertId;
   await pool.query('INSERT INTO STUDENT (student_id, reg_no, gender) VALUES (?, ?, ?)', [maleStudentId, 'MS_INV', 'MALE']);
-  maleStudentToken = generateToken({ user_id: maleStudentId, role: 'STUDENT', email: 'male@invtest.com' });
+  maleStudentToken = generateToken({ user_id: maleStudentId, role: 'STUDENT', email: 'male_inv@vitstudent.ac.in' });
 
   // 4. Female Student
-  const [fsRes] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['Female Student', 'female@invtest.com', hash, 'STUDENT']);
+  const [fsRes] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['Female Student', 'female_inv@vitstudent.ac.in', hash, 'STUDENT']);
   femaleStudentId = fsRes.insertId;
   await pool.query('INSERT INTO STUDENT (student_id, reg_no, gender) VALUES (?, ?, ?)', [femaleStudentId, 'FS_INV', 'FEMALE']);
-  femaleStudentToken = generateToken({ user_id: femaleStudentId, role: 'STUDENT', email: 'female@invtest.com' });
+  femaleStudentToken = generateToken({ user_id: femaleStudentId, role: 'STUDENT', email: 'female_inv@vitstudent.ac.in' });
 });
 
 afterAll(async () => {
@@ -57,7 +57,7 @@ afterAll(async () => {
   await pool.query("DELETE FROM ROOM");
   await pool.query("DELETE FROM ROOM_TYPE");
   await pool.query("DELETE FROM HOSTEL");
-  await pool.query("DELETE FROM USER WHERE email LIKE '%@invtest.com'");
+  await pool.query("DELETE FROM USER WHERE email LIKE '%@invtest.com' OR email LIKE '%@vit.ac.in' OR email LIKE '%@vitstudent.ac.in'");
   await pool.end();
 });
 
@@ -66,7 +66,7 @@ describe('Inventory APIs', () => {
     it('Admin can create hostels', async () => {
       let res = await request(app).post('/api/inventory/hostels')
         .set('Cookie', [`token=${adminToken}`])
-        .send({ name: 'Male Hostel A', gender: 'MALE', total_capacity: 100, warden_id: wardenId });
+        .send({ name: 'MH-Male Hostel A', gender: 'MALE', total_capacity: 100, warden_id: wardenId });
       expect(res.statusCode).toBe(201);
       maleHostelId = res.body.data.hostel_id;
 
@@ -75,7 +75,7 @@ describe('Inventory APIs', () => {
 
       res = await request(app).post('/api/inventory/hostels')
         .set('Cookie', [`token=${adminToken}`])
-        .send({ name: 'Female Hostel B', gender: 'FEMALE', total_capacity: 100 });
+        .send({ name: 'LH-Female Hostel B', gender: 'FEMALE', total_capacity: 100 });
       expect(res.statusCode).toBe(201);
       femaleHostelId = res.body.data.hostel_id;
     });
@@ -116,6 +116,16 @@ describe('Inventory APIs', () => {
       expect(res.statusCode).toBe(200);
       expect(res.body.data.length).toBeGreaterThanOrEqual(2);
     });
+    
+    it('Male student cannot access female hostel by ID', async () => {
+      const res = await request(app).get(`/api/inventory/hostels/${femaleHostelId}`).set('Cookie', [`token=${maleStudentToken}`]);
+      expect(res.statusCode).toBe(403);
+    });
+
+    it('Female student cannot access male hostel by ID', async () => {
+      const res = await request(app).get(`/api/inventory/hostels/${maleHostelId}`).set('Cookie', [`token=${femaleStudentToken}`]);
+      expect(res.statusCode).toBe(403);
+    });
   });
 
   describe('Rooms (Creation and Validation)', () => {
@@ -147,6 +157,16 @@ describe('Inventory APIs', () => {
         .send({ hostel_id: femaleHostelId, room_number: 'F101', floor: 1, room_type_id: roomTypeId, capacity: 2 });
       expect(res.statusCode).toBe(201);
       femaleRoomId = res.body.data.room_id;
+    });
+
+    it('Male student cannot access female room by ID', async () => {
+      const res = await request(app).get(`/api/inventory/rooms/${femaleRoomId}`).set('Cookie', [`token=${maleStudentToken}`]);
+      expect(res.statusCode).toBe(403);
+    });
+
+    it('Female student cannot access male room by ID', async () => {
+      const res = await request(app).get(`/api/inventory/rooms/${maleRoomId}`).set('Cookie', [`token=${femaleStudentToken}`]);
+      expect(res.statusCode).toBe(403);
     });
 
     it('Warden can update a room in their own hostel', async () => {

@@ -14,7 +14,7 @@ Intelligent Hostel Counselling & Allocation System (IHCAS) is a full-stack hoste
 - **Database:** MySQL with InnoDB (Implemented Schema & Setup)
 - **Testing:** Jest, Supertest
 
-**Current Status:** Phase 4 (Hostel Inventory and Availability) is Complete.
+**Current Status:** Phase 13 (Comprehensive Test Data and Functional Validation) is Complete.
 
 ## B. Feature and Phase Status
 - **Phase 0: Repository Audit and Project Setup** - ✅ Complete
@@ -23,9 +23,16 @@ Intelligent Hostel Counselling & Allocation System (IHCAS) is a full-stack hoste
 - **Phase 3: Authentication and User Data** - ✅ Complete
 - **Phase 4: Hostel Inventory and Availability** - ✅ Complete
 - **Phase 5: Counselling Queue and Sessions** - ✅ Complete (Session config, Queue priority, Server-side timeout)
-- **Phase 6-8: Business Logic & Dashboards** - ❌ Not Started
-- **Phase 9: AI Integration** - ❌ Deferred until after Phase 12
-- **Phase 10-12: Frontend, Hardening, Deployment** - ❌ Not Started
+- **Phase 6: Allocation Engine and Roommate Verification** - ✅ Complete (Atomic allocation, Roommate DB OTP audit & Nodemailer delivery, Room locking, Concurrency)
+- **Phase 8a: Domain Enforcement & OAuth Foundation** - ✅ Complete (VIT domains restricted, Google OAuth 2.0 mocked & tested)
+- **Phase 8c: Gender-Separated Hostel & Room Allocation Rules** - ✅ Complete (Strict `MH-`/`LH-` hostel naming, cross-gender block, roommate gender verification)
+- **Phase 7: Student Experience and Post-Allocation Features** - ✅ Complete (Requests module, Notifications, Student Dashboard API & React UI)
+- **Phase 8b: Administrator and Warden Workspaces** - ✅ Complete (Warden dashboard UI, access isolation, request approvals, and announcements)
+- **Phase 9: AI Integration** - ❌ Deferred until after non-AI phases
+- **Phase 10: Frontend Integration and Design QA** - ✅ Complete (UI/UX overhaul, duplicate submission guards, clean tables)
+- **Phase 11: Admin Dashboard and Administrative Operations** - ✅ Complete (Admin Dashboard UI, global stats, counselling generator, room selection dropdown)
+- **Phase 12: Hardening, Deployment** - ✅ Complete (Security headers, rate limiting, Deployment.md, production DB guidelines)
+- **Phase 13: Comprehensive Test Data and Functional Validation** - ✅ Complete (100 students, 6 hostels, 60 rooms, active counselling queue, 39/39 functional checks pass)
 
 ## C. Installation and Local Development
 **Prerequisites:**
@@ -53,13 +60,18 @@ DB_USER=root
 DB_PASSWORD=your_password
 DB_NAME=ihcas_dev
 TEST_DB_NAME=ihcas_test_db
+JWT_SECRET=your_jwt_secret
+OTP_PROVIDER=TEST_MOCK
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+GOOGLE_CALLBACK_URL=http://localhost:3000/api/auth/google/callback
 ```
 
-**Database Initialization:**
+**Database Initialization & Seeding:**
 ```bash
 # In ihcas/backend
 node scripts/migrate.js
-node scripts/seed.js
+npm run seed              # Runs idempotent Phase 13 seeder (100 students, 6 hostels, 60 rooms, active counselling)
 node scripts/setup-test-db.js
 ```
 
@@ -69,11 +81,46 @@ node scripts/setup-test-db.js
 node src/server.js
 ```
 
-**Running Tests:**
+**Running Functional Validation & Tests:**
 ```bash
 # In ihcas/backend
-npm test
+npm run verify:phase13    # Executes comprehensive 39-point functional verification on ihcas_dev
+npm test                  # Executes full integration test suite against isolated ihcas_test_db
 ```
+
+### Development Demo Accounts & Credentials
+All seeded test accounts use the password: `DemoPassword123!`
+
+| Role | Name | Email | Reg No / ID | Gender | Assigned Hostel / Scope | Dashboard Route |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **ADMIN** | System Administrator | `admin@vit.ac.in` | `ADM001` | - | Global Campus Oversight | `/admin/dashboard` |
+| **WARDEN** | MH-A Chief Warden | `warden@vit.ac.in` | `WRD001` | MALE | `MH-A` (North Campus) | `/warden/dashboard` |
+| **WARDEN** | MH-B Senior Warden | `warden.mhb@vit.ac.in` | `WRD002` | MALE | `MH-B` (Central Campus) | `/warden/dashboard` |
+| **WARDEN** | MH-C Associate Warden | `warden.mhc@vit.ac.in` | `WRD003` | MALE | `MH-C` (South Campus) | `/warden/dashboard` |
+| **WARDEN** | LH-A Chief Warden | `warden.lha@vit.ac.in` | `WRD004` | FEMALE | `LH-A` (East Campus) | `/warden/dashboard` |
+| **WARDEN** | LH-B Senior Warden | `warden.lhb@vit.ac.in` | `WRD005` | FEMALE | `LH-B` (West Campus) | `/warden/dashboard` |
+| **WARDEN** | LH-C Associate Warden | `warden.lhc@vit.ac.in` | `WRD006` | FEMALE | `LH-C` (North-East Campus) | `/warden/dashboard` |
+| **STUDENT** | Aarav Sharma (Rank 1) | `aarav.sharma24@vitstudent.ac.in` | `24BCE1001` | MALE | Eligible for `MH-*` (Queue #1) | `/dashboard` |
+| **STUDENT** | Aanya Gupta (Rank 2) | `aanya.gupta24@vitstudent.ac.in` | `24BCE2001` | FEMALE | Eligible for `LH-*` (Queue #2) | `/dashboard` |
+| **STUDENT** | Vihaan Patel (Rank 3) | `vihaan.patel24@vitstudent.ac.in` | `24BCE1002` | MALE | Eligible for `MH-*` (Queue #3) | `/dashboard` |
+| **STUDENT** | Diya Verma (Rank 4) | `diya.verma24@vitstudent.ac.in` | `24BCE2002` | FEMALE | Eligible for `LH-*` (Queue #4) | `/dashboard` |
+
+### Top 10 Eligible Students in Active Counselling Queue
+All unallocated students (Ranks 1 to 88) are in `PENDING` queue status with an active 2026-2027 session and 3-minute timers:
+
+| Queue Pos | Name | Email | Reg Number | Gender | Rank | CGPA | Department | Status |
+| :---: | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **1** | Aarav Sharma | `aarav.sharma24@vitstudent.ac.in` | `24BCE1001` | MALE | **1** | 9.95 | BCE | PENDING (Front) |
+| **2** | Aanya Gupta | `aanya.gupta24@vitstudent.ac.in` | `24BCE2001` | FEMALE | **2** | 9.93 | BCE | PENDING |
+| **3** | Vihaan Patel | `vihaan.patel24@vitstudent.ac.in` | `24BCE1002` | MALE | **3** | 9.90 | BCE | PENDING |
+| **4** | Diya Verma | `diya.verma24@vitstudent.ac.in` | `24BCE2002` | FEMALE | **4** | 9.88 | BCE | PENDING |
+| **5** | Vivaan Gupta | `vivaan.gupta24@vitstudent.ac.in` | `24BCE1003` | MALE | **5** | 9.85 | BCE | PENDING |
+| **6** | Ishita Sharma | `ishita.sharma24@vitstudent.ac.in` | `24BCE2003` | FEMALE | **6** | 9.83 | BCE | PENDING |
+| **7** | Aditya Kumar | `aditya.kumar24@vitstudent.ac.in` | `24BCE1004` | MALE | **7** | 9.80 | BCE | PENDING |
+| **8** | Riya Sen | `riya.sen24@vitstudent.ac.in` | `24BCE2004` | FEMALE | **8** | 9.78 | BCE | PENDING |
+| **9** | Reyansh Verma | `reyansh.verma24@vitstudent.ac.in` | `24BCE1005` | MALE | **9** | 9.75 | BCE | PENDING |
+| **10** | Saanvi Patel | `saanvi.patel24@vitstudent.ac.in` | `24BCE2005` | FEMALE | **10** | 9.73 | BCE | PENDING |
+
 
 ## D. Repository and Directory Structure
 ```text
@@ -267,7 +314,17 @@ flowchart TD
 - **Method & Path:** `POST /api/counselling/activate`
 - **Purpose:** Starts the 3-minute counselling session. Validates that the student is front-of-queue or their original scheduled time has passed. Protects against duplicate sessions and concurrent race conditions.
 
-*(Business endpoints such as actual room allocations are planned for future phases).*
+#### 13. Roommate Verification (OTP)
+- **Method & Path:** `POST /api/allocation/roommate-otp/request`
+- **Purpose:** Initiates OTP verification for a target roommate by generating and storing a 6-digit OTP. Validates gender and existing allocations.
+- **Authentication:** Student only.
+- **Method & Path:** `POST /api/allocation/roommate-otp/verify`
+- **Purpose:** Verifies a submitted OTP securely. Enforces 10-minute expiry and attempt limits to prevent brute forcing.
+
+#### 14. Room Allocation Engine
+- **Method & Path:** `POST /api/allocation`
+- **Purpose:** Confirms room allocation for a student and any verified roommates. Uses MySQL transactions and row locking (`FOR UPDATE` on `STUDENT` and `ROOM`) to prevent concurrency deadlocks, capacity overbooking, and duplicate allocations.
+- **Authentication:** Student only. Requires a valid, active counselling slot.
 
 ## G. Database Documentation
 - **MySQL & InnoDB**: Chosen for standard relational constraints and transaction safety.

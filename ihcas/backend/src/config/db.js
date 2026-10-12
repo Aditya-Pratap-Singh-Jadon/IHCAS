@@ -1,5 +1,10 @@
 require('dotenv').config();
 const mysql = require('mysql2/promise');
+
+if (process.env.NODE_ENV === 'test') {
+    process.env.DB_NAME = process.env.TEST_DB_NAME || 'ihcas_test_db';
+}
+
 const requiredEnv = ['DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME'];
 for (const key of requiredEnv) {
     if (!process.env[key]) {

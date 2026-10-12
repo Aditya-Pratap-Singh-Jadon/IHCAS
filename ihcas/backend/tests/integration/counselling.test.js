@@ -26,34 +26,34 @@ beforeAll(async () => {
   const hash = await bcrypt.hash('password123', 10);
 
   // Admin
-  const [aRes] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['Admin', 'admin@cstest.com', hash, 'ADMIN']);
+  const [aRes] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['Admin', 'admin_cs@vit.ac.in', hash, 'ADMIN']);
   adminId = aRes.insertId;
   await pool.query('INSERT INTO ADMIN (admin_id, employee_id) VALUES (?, ?)', [adminId, 'ADM_CS']);
-  adminToken = generateToken({ user_id: adminId, role: 'ADMIN', email: 'admin@cstest.com' });
+  adminToken = generateToken({ user_id: adminId, role: 'ADMIN', email: 'admin_cs@vit.ac.in' });
 
   // Student 1 (Rank 1)
-  const [s1Res] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['S1', 's1@cstest.com', hash, 'STUDENT']);
+  const [s1Res] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['S1', 's1_cs@vitstudent.ac.in', hash, 'STUDENT']);
   student1Id = s1Res.insertId;
   await pool.query('INSERT INTO STUDENT (student_id, reg_no, academic_rank, cgpa) VALUES (?, ?, ?, ?)', [student1Id, 'STU_CS1', 1, 9.5]);
-  student1Token = generateToken({ user_id: student1Id, role: 'STUDENT', email: 's1@cstest.com' });
+  student1Token = generateToken({ user_id: student1Id, role: 'STUDENT', email: 's1_cs@vitstudent.ac.in' });
 
   // Student 2 (Rank 2)
-  const [s2Res] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['S2', 's2@cstest.com', hash, 'STUDENT']);
+  const [s2Res] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['S2', 's2_cs@vitstudent.ac.in', hash, 'STUDENT']);
   student2Id = s2Res.insertId;
   await pool.query('INSERT INTO STUDENT (student_id, reg_no, academic_rank, cgpa) VALUES (?, ?, ?, ?)', [student2Id, 'STU_CS2', 2, 9.0]);
-  student2Token = generateToken({ user_id: student2Id, role: 'STUDENT', email: 's2@cstest.com' });
+  student2Token = generateToken({ user_id: student2Id, role: 'STUDENT', email: 's2_cs@vitstudent.ac.in' });
 
   // Student 3 (Rank 2 as well, but lower CGPA to test tie-breaking)
-  const [s3Res] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['S3', 's3@cstest.com', hash, 'STUDENT']);
+  const [s3Res] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['S3', 's3_cs@vitstudent.ac.in', hash, 'STUDENT']);
   student3Id = s3Res.insertId;
   await pool.query('INSERT INTO STUDENT (student_id, reg_no, academic_rank, cgpa) VALUES (?, ?, ?, ?)', [student3Id, 'STU_CS3', 2, 8.5]);
-  student3Token = generateToken({ user_id: student3Id, role: 'STUDENT', email: 's3@cstest.com' });
+  student3Token = generateToken({ user_id: student3Id, role: 'STUDENT', email: 's3_cs@vitstudent.ac.in' });
 
   // Student 4 (Rank 2, CGPA 8.5 as well, tests student_id tie breaker)
-  const [s4Res] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['S4', 's4@cstest.com', hash, 'STUDENT']);
+  const [s4Res] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', ['S4', 's4_cs@vitstudent.ac.in', hash, 'STUDENT']);
   student4Id = s4Res.insertId;
   await pool.query('INSERT INTO STUDENT (student_id, reg_no, academic_rank, cgpa) VALUES (?, ?, ?, ?)', [student4Id, 'STU_CS4', 2, 8.5]);
-  student4Token = generateToken({ user_id: student4Id, role: 'STUDENT', email: 's4@cstest.com' });
+  student4Token = generateToken({ user_id: student4Id, role: 'STUDENT', email: 's4_cs@vitstudent.ac.in' });
 });
 
 afterAll(async () => {
@@ -61,7 +61,7 @@ afterAll(async () => {
   await pool.query("DELETE FROM COUNSELLING_SLOT");
   await pool.query("DELETE FROM COUNSELLING_SESSION");
   await pool.query("DELETE FROM STUDENT WHERE reg_no LIKE 'STU_CS%'");
-  await pool.query("DELETE FROM USER WHERE email LIKE '%@cstest.com'");
+  await pool.query("DELETE FROM USER WHERE email LIKE '%@cstest.com' OR email LIKE '%@vit.ac.in' OR email LIKE '%@vitstudent.ac.in'");
   await pool.end();
 });
 

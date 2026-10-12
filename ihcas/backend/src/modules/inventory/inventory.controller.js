@@ -14,9 +14,11 @@ const getHostels = async (req, res, next) => {
 
     if (req.user.role === 'STUDENT') {
       const gender = await getStudentGender(req.user.user_id);
-      if (gender) {
+      if (gender === 'MALE' || gender === 'FEMALE') {
         query += ' WHERE gender = ?';
         params.push(gender);
+      } else {
+        query += ' WHERE 1=0';
       }
     }
 
@@ -27,9 +29,29 @@ const getHostels = async (req, res, next) => {
   }
 };
 
+const getHostelById = async (req, res, next) => {
+  try {
+    const hostelId = req.params.id;
+    const [hostels] = await pool.query('SELECT * FROM HOSTEL WHERE hostel_id = ?', [hostelId]);
+    if (hostels.length === 0) return next({ statusCode: 404, message: 'Hostel not found' });
+    
+    if (req.user.role === 'STUDENT') {
+      const gender = await getStudentGender(req.user.user_id);
+      if (gender !== hostels[0].gender) return next({ statusCode: 403, message: 'Cannot access restricted hostel' });
+    }
+    
+    res.json({ success: true, data: hostels[0] });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const createHostel = async (req, res, next) => {
   try {
     const { name, gender, location, hostel_type, total_capacity, warden_id } = req.body;
+    
+    if (gender === 'MALE' && !name.startsWith('MH-')) return next({ statusCode: 400, message: "Boys' hostel name must start with MH-" });
+    if (gender === 'FEMALE' && !name.startsWith('LH-')) return next({ statusCode: 400, message: "Girls' hostel name must start with LH-" });
     
     // Ensure warden_id exists if provided
     if (warden_id) {
@@ -59,6 +81,17 @@ const updateHostel = async (req, res, next) => {
 
     if (Object.keys(updates).length === 0) {
       return res.json({ success: true, message: 'No changes provided' });
+    }
+
+    if (updates.name !== undefined || updates.gender !== undefined) {
+      const [currentHostel] = await pool.query('SELECT name, gender FROM HOSTEL WHERE hostel_id = ?', [hostelId]);
+      if (currentHostel.length === 0) return next({ statusCode: 404, message: 'Hostel not found' });
+      
+      const finalName = updates.name !== undefined ? updates.name : currentHostel[0].name;
+      const finalGender = updates.gender !== undefined ? updates.gender : currentHostel[0].gender;
+
+      if (finalGender === 'MALE' && !finalName.startsWith('MH-')) return next({ statusCode: 400, message: "Boys' hostel name must start with MH-" });
+      if (finalGender === 'FEMALE' && !finalName.startsWith('LH-')) return next({ statusCode: 400, message: "Girls' hostel name must start with LH-" });
     }
 
     if (updates.warden_id) {
@@ -141,9 +174,11 @@ const getRooms = async (req, res, next) => {
 
     if (req.user.role === 'STUDENT') {
       const gender = await getStudentGender(req.user.user_id);
-      if (gender) {
+      if (gender === 'MALE' || gender === 'FEMALE') {
         query += ` AND h.gender = ?`;
         params.push(gender);
+      } else {
+        query += ` AND 1=0`;
       }
     } else if (req.user.role === 'WARDEN') {
       const [wardens] = await pool.query('SELECT hostel_id FROM WARDEN WHERE warden_id = ?', [req.user.user_id]);
@@ -163,6 +198,28 @@ const getRooms = async (req, res, next) => {
     }));
 
     res.json({ success: true, data: enrichedRooms });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getRoomById = async (req, res, next) => {
+  try {
+    const roomId = req.params.id;
+    const [rooms] = await pool.query(`
+      SELECT r.*, h.gender as hostel_gender
+      FROM ROOM r JOIN HOSTEL h ON r.hostel_id = h.hostel_id
+      WHERE r.room_id = ?
+    `, [roomId]);
+    
+    if (rooms.length === 0) return next({ statusCode: 404, message: 'Room not found' });
+    
+    if (req.user.role === 'STUDENT') {
+      const gender = await getStudentGender(req.user.user_id);
+      if (gender !== rooms[0].hostel_gender) return next({ statusCode: 403, message: 'Cannot access restricted room' });
+    }
+    
+    res.json({ success: true, data: rooms[0] });
   } catch (error) {
     next(error);
   }
@@ -244,11 +301,13 @@ const updateRoom = async (req, res, next) => {
 
 module.exports = {
   getHostels,
+  getHostelById,
   createHostel,
   updateHostel,
   getRoomTypes,
   createRoomType,
   getRooms,
+  getRoomById,
   createRoom,
   updateRoom
 };

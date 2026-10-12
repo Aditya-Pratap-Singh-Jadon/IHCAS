@@ -18,49 +18,49 @@ const generateToken = (payload) => {
 
 beforeAll(async () => {
   // Clear previous test data
-  await pool.query("DELETE FROM USER WHERE email LIKE '%@testusers.com'");
+  await pool.query("DELETE FROM USER WHERE email LIKE '%@testusers.com' OR email LIKE '%@vitstudent.ac.in' OR email LIKE '%@vit.ac.in'");
 
   const hash = await bcrypt.hash('password123', 10);
 
   // 1. Student User
   const [sRes] = await pool.query(
     'INSERT INTO USER (name, email, password_hash, role, is_active) VALUES (?, ?, ?, ?, ?)',
-    ['Student One', 'student1@testusers.com', hash, 'STUDENT', true]
+    ['Student One', 's1_users@vitstudent.ac.in', hash, 'STUDENT', true]
   );
   studentId = sRes.insertId;
   await pool.query(
     'INSERT INTO STUDENT (student_id, reg_no, phone) VALUES (?, ?, ?)',
     [studentId, 'STU001', '1234567890']
   );
-  studentToken = generateToken({ user_id: studentId, role: 'STUDENT', email: 'student1@testusers.com' });
+  studentToken = generateToken({ user_id: studentId, role: 'STUDENT', email: 's1_users@vitstudent.ac.in' });
 
   // 2. Admin User
   const [aRes] = await pool.query(
     'INSERT INTO USER (name, email, password_hash, role, is_active) VALUES (?, ?, ?, ?, ?)',
-    ['Admin One', 'admin1@testusers.com', hash, 'ADMIN', true]
+    ['Admin One', 'admin_users@vit.ac.in', hash, 'ADMIN', true]
   );
   adminId = aRes.insertId;
   await pool.query(
     'INSERT INTO ADMIN (admin_id, employee_id) VALUES (?, ?)',
     [adminId, 'ADM001']
   );
-  adminToken = generateToken({ user_id: adminId, role: 'ADMIN', email: 'admin1@testusers.com' });
+  adminToken = generateToken({ user_id: adminId, role: 'ADMIN', email: 'admin_users@vit.ac.in' });
 
   // 3. Another Student User
   const [oRes] = await pool.query(
     'INSERT INTO USER (name, email, password_hash, role, is_active) VALUES (?, ?, ?, ?, ?)',
-    ['Student Two', 'student2@testusers.com', hash, 'STUDENT', true]
+    ['Student Two', 's2_users@vitstudent.ac.in', hash, 'STUDENT', true]
   );
   otherStudentId = oRes.insertId;
   await pool.query(
     'INSERT INTO STUDENT (student_id, reg_no) VALUES (?, ?)',
     [otherStudentId, 'STU002']
   );
-  otherStudentToken = generateToken({ user_id: otherStudentId, role: 'STUDENT', email: 'student2@testusers.com' });
+  otherStudentToken = generateToken({ user_id: otherStudentId, role: 'STUDENT', email: 's2_users@vitstudent.ac.in' });
 });
 
 afterAll(async () => {
-  await pool.query("DELETE FROM USER WHERE email LIKE '%@testusers.com'");
+  await pool.query("DELETE FROM USER WHERE email LIKE '%@testusers.com' OR email LIKE '%@vitstudent.ac.in' OR email LIKE '%@vit.ac.in'");
   await pool.end();
 });
 
@@ -72,7 +72,7 @@ describe('Users API', () => {
     
     expect(res.statusCode).toBe(200);
     expect(res.body.success).toBe(true);
-    expect(res.body.data.email).toBe('student1@testusers.com');
+    expect(res.body.data.email).toBe('s1_users@vitstudent.ac.in');
     expect(res.body.data.profile.reg_no).toBe('STU001');
   });
 
@@ -105,7 +105,7 @@ describe('Users API', () => {
       .set('Cookie', [`token=${adminToken}`]);
     
     expect(res.statusCode).toBe(200);
-    expect(res.body.data.email).toBe('student2@testusers.com');
+    expect(res.body.data.email).toBe('s2_users@vitstudent.ac.in');
     expect(res.body.data.profile.reg_no).toBe('STU002');
   });
 });

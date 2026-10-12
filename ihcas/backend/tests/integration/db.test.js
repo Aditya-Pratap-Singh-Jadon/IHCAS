@@ -69,12 +69,12 @@ describe('Database Integration Tests', () => {
   });
 
   it('should enforce unique registration number for STUDENT', async () => {
-    await connection.query(`INSERT INTO USER (name, email, password_hash, role) VALUES ('Test Student 1', 'test1@test.com', 'hash', 'STUDENT')`);
+    await connection.query(`INSERT INTO USER (name, email, password_hash, role) VALUES ('Test Student 1', 'test1_db@vitstudent.ac.in', 'hash', 'STUDENT')`);
     const [user] = await connection.query(`SELECT LAST_INSERT_ID() as id`);
     const userId1 = user[0].id;
     await connection.query(`INSERT INTO STUDENT (student_id, reg_no) VALUES (?, 'REG123')`, [userId1]);
 
-    await connection.query(`INSERT INTO USER (name, email, password_hash, role) VALUES ('Test Student 2', 'test2@test.com', 'hash', 'STUDENT')`);
+    await connection.query(`INSERT INTO USER (name, email, password_hash, role) VALUES ('Test Student 2', 'test2_db@vitstudent.ac.in', 'hash', 'STUDENT')`);
     const [user2] = await connection.query(`SELECT LAST_INSERT_ID() as id`);
     const userId2 = user2[0].id;
     
@@ -100,10 +100,10 @@ describe('Database Integration Tests', () => {
 
   it('should rollback transaction on error', async () => {
     await connection.beginTransaction();
-    await connection.query(`INSERT INTO USER (name, email, password_hash, role) VALUES ('Rollback User', 'rb@test.com', 'hash', 'STUDENT')`);
+    await connection.query(`INSERT INTO USER (name, email, password_hash, role) VALUES ('Rollback User', 'rb_db@vitstudent.ac.in', 'hash', 'STUDENT')`);
     await connection.rollback();
     
-    const [rows] = await connection.query(`SELECT * FROM USER WHERE email = 'rb@test.com'`);
+    const [rows] = await connection.query(`SELECT * FROM USER WHERE email = 'rb_db@vitstudent.ac.in'`);
     expect(rows.length).toBe(0);
   });
 });

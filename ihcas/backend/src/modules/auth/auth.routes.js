@@ -22,4 +22,7 @@ router.post('/login', loginLimiter, validate(loginSchema), authController.login)
 router.post('/logout', authController.logout);
 router.get('/me', requireAuth, authController.me);
 
+router.get('/google', authController.googleLogin);
+router.get('/google/callback', authController.googleCallback);
+
 module.exports = router;

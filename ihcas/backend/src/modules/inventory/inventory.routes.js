@@ -10,6 +10,7 @@ router.use(requireAuth);
 
 // --- Hostels ---
 router.get('/hostels', inventoryController.getHostels);
+router.get('/hostels/:id', inventoryController.getHostelById);
 router.post('/hostels', requireRole(['ADMIN']), validate(schema.createHostelSchema), inventoryController.createHostel);
 router.put('/hostels/:id', requireRole(['ADMIN']), validate(schema.updateHostelSchema), inventoryController.updateHostel);
 
@@ -19,6 +20,7 @@ router.post('/room-types', requireRole(['ADMIN']), validate(schema.createRoomTyp
 
 // --- Rooms ---
 router.get('/rooms', inventoryController.getRooms);
+router.get('/rooms/:id', inventoryController.getRoomById);
 router.post('/rooms', requireRole(['ADMIN']), validate(schema.createRoomSchema), inventoryController.createRoom);
 router.put('/rooms/:id', requireRole(['ADMIN', 'WARDEN']), validate(schema.updateRoomSchema), inventoryController.updateRoom);
 

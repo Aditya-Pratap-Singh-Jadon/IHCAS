@@ -135,6 +135,7 @@ CREATE TABLE STUDENT_ROOMMATE (
     allocation_id INT NOT NULL,
     student_id INT NOT NULL,
     roommate_id INT NOT NULL,
+    otp_id INT,
     is_verified BOOLEAN DEFAULT FALSE,
     verified_at DATETIME,
     FOREIGN KEY (allocation_id) REFERENCES ALLOCATION(allocation_id) ON DELETE CASCADE,
@@ -146,12 +147,21 @@ CREATE TABLE OTP_VERIFICATION (
     otp_id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT NOT NULL,
     roommate_reg_no VARCHAR(50) NOT NULL,
-    otp_code VARCHAR(10) NOT NULL,
+    otp_hash VARCHAR(255) NOT NULL,
+    destination_contact VARCHAR(255),
+    delivery_channel VARCHAR(20) DEFAULT 'EMAIL',
+    delivery_status VARCHAR(20) DEFAULT 'PENDING',
     status VARCHAR(20),
+    attempts INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at DATETIME NOT NULL,
     verified_at DATETIME,
     FOREIGN KEY (student_id) REFERENCES STUDENT(student_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+ALTER TABLE STUDENT_ROOMMATE 
+ADD CONSTRAINT fk_student_roommate_otp 
+FOREIGN KEY (otp_id) REFERENCES OTP_VERIFICATION(otp_id) ON DELETE SET NULL;
 
 CREATE TABLE AI_RECOMMENDATION (
     recommendation_id INT AUTO_INCREMENT PRIMARY KEY,

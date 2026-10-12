@@ -11,6 +11,26 @@ const requireAuth = (req, res, next) => {
   try {
     const secret = process.env.JWT_SECRET || 'fallback-secret-do-not-use-in-production';
     const decoded = jwt.verify(token, secret);
+    
+    // Enforce domain policy even on active tokens
+    if (decoded.email && decoded.role) {
+      const normalizedEmail = decoded.email.trim().toLowerCase();
+      const domain = normalizedEmail.split('@')[1];
+      
+      let isValid = false;
+      if (decoded.role === 'STUDENT') {
+        isValid = domain === 'vitstudent.ac.in';
+      } else if (decoded.role === 'ADMIN' || decoded.role === 'WARDEN') {
+        isValid = domain === 'vit.ac.in';
+      }
+      
+      if (!isValid) {
+        const error = new Error('Invalid email domain for the given role');
+        error.statusCode = 403;
+        return next(error);
+      }
+    }
+
     req.user = decoded; // Contains user_id, role, etc.
     next();
   } catch (err) {

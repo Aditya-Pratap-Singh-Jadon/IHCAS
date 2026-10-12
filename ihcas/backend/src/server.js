@@ -21,7 +21,16 @@ const server = app.listen(PORT, () => {
 // Graceful Shutdown
 const shutdown = async (signal) => {
   console.log(`\nReceived ${signal}. Shutting down gracefully...`);
+  
+  // Force close after 10 seconds
+  const forceTimeout = setTimeout(() => {
+    console.error('Could not close connections in time, forcefully shutting down');
+    process.exit(1);
+  }, 10000);
+  if (forceTimeout.unref) forceTimeout.unref();
+
   server.close(async () => {
+    clearTimeout(forceTimeout);
     console.log('HTTP server closed.');
     try {
       await pool.end();
@@ -32,12 +41,6 @@ const shutdown = async (signal) => {
       process.exit(1);
     }
   });
-
-  // Force close after 10 seconds
-  setTimeout(() => {
-    console.error('Could not close connections in time, forcefully shutting down');
-    process.exit(1);
-  }, 10000);
 };
 
 process.on('SIGINT', () => shutdown('SIGINT'));
