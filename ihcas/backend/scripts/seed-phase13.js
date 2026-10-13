@@ -314,16 +314,19 @@ async function seedPhase13() {
 
     for (const s of students) {
       // 5a. Upsert USER
+      const studentRootPassword = s.email.split('@')[0];
+      const studentPasswordHash = await bcrypt.hash(studentRootPassword, 10);
+
       let userId;
       const [existingUser] = await pool.query('SELECT user_id FROM USER WHERE email = ?', [s.email]);
       if (existingUser.length > 0) {
         userId = existingUser[0].user_id;
         await pool.query('UPDATE USER SET name = ?, password_hash = ?, role = ? WHERE user_id = ?', [
-          s.name, passwordHash, 'STUDENT', userId
+          s.name, studentPasswordHash, 'STUDENT', userId
         ]);
       } else {
         const [uRes] = await pool.query('INSERT INTO USER (name, email, password_hash, role) VALUES (?, ?, ?, ?)', [
-          s.name, s.email, passwordHash, 'STUDENT'
+          s.name, s.email, studentPasswordHash, 'STUDENT'
         ]);
         userId = uRes.insertId;
       }

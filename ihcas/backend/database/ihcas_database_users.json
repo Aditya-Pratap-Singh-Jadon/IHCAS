@@ -1,0 +1,4426 @@
+{
+  "exported_at": "2026-10-13T17:49:09.657Z",
+  "database": "ihcas_dev",
+  "summary": {
+    "total_admins": 1,
+    "total_wardens": 6,
+    "total_students": 101,
+    "total_users": 108
+  },
+  "default_passwords_summary": {
+    "admin": "DemoPassword123!",
+    "warden": "DemoPassword123!",
+    "students": "root part of their email (e.g. for student@vitstudent.ac.in -> \"student\", for aarav.sharma24@vitstudent.ac.in -> \"aarav.sharma24\")"
+  },
+  "admins": [
+    {
+      "user_id": 1,
+      "name": "System Administrator",
+      "email": "admin@vit.ac.in",
+      "role": "ADMIN",
+      "is_active": 1,
+      "created_at": "2026-10-11T00:34:19.000Z",
+      "employee_id": "ADM001",
+      "designation": null,
+      "phone": null,
+      "login_credentials": {
+        "email": "admin@vit.ac.in",
+        "password": "DemoPassword123!"
+      }
+    }
+  ],
+  "wardens": [
+    {
+      "user_id": 2,
+      "name": "MH-A Chief Warden",
+      "email": "warden@vit.ac.in",
+      "role": "WARDEN",
+      "is_active": 1,
+      "created_at": "2026-10-11T00:34:19.000Z",
+      "employee_id": "WRD001",
+      "phone": null,
+      "hostel_id": 1,
+      "hostel_name": "MH-A",
+      "hostel_gender": "MALE",
+      "hostel_location": "North Campus",
+      "hostel_type": "UG",
+      "hostel_capacity": 120,
+      "login_credentials": {
+        "email": "warden@vit.ac.in",
+        "password": "DemoPassword123!"
+      }
+    },
+    {
+      "user_id": 4,
+      "name": "MH-B Senior Warden",
+      "email": "warden.mhb@vit.ac.in",
+      "role": "WARDEN",
+      "is_active": 1,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "employee_id": "WRD002",
+      "phone": "9876543200",
+      "hostel_id": 2,
+      "hostel_name": "MH-B",
+      "hostel_gender": "MALE",
+      "hostel_location": "Central Campus",
+      "hostel_type": "UG",
+      "hostel_capacity": 120,
+      "login_credentials": {
+        "email": "warden.mhb@vit.ac.in",
+        "password": "DemoPassword123!"
+      }
+    },
+    {
+      "user_id": 5,
+      "name": "MH-C Associate Warden",
+      "email": "warden.mhc@vit.ac.in",
+      "role": "WARDEN",
+      "is_active": 1,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "employee_id": "WRD003",
+      "phone": "9876543200",
+      "hostel_id": 3,
+      "hostel_name": "MH-C",
+      "hostel_gender": "MALE",
+      "hostel_location": "South Campus",
+      "hostel_type": "UG",
+      "hostel_capacity": 120,
+      "login_credentials": {
+        "email": "warden.mhc@vit.ac.in",
+        "password": "DemoPassword123!"
+      }
+    },
+    {
+      "user_id": 6,
+      "name": "LH-A Chief Warden",
+      "email": "warden.lha@vit.ac.in",
+      "role": "WARDEN",
+      "is_active": 1,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "employee_id": "WRD004",
+      "phone": "9876543200",
+      "hostel_id": 4,
+      "hostel_name": "LH-A",
+      "hostel_gender": "FEMALE",
+      "hostel_location": "East Campus",
+      "hostel_type": "UG",
+      "hostel_capacity": 120,
+      "login_credentials": {
+        "email": "warden.lha@vit.ac.in",
+        "password": "DemoPassword123!"
+      }
+    },
+    {
+      "user_id": 7,
+      "name": "LH-B Senior Warden",
+      "email": "warden.lhb@vit.ac.in",
+      "role": "WARDEN",
+      "is_active": 1,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "employee_id": "WRD005",
+      "phone": "9876543200",
+      "hostel_id": 5,
+      "hostel_name": "LH-B",
+      "hostel_gender": "FEMALE",
+      "hostel_location": "West Campus",
+      "hostel_type": "UG",
+      "hostel_capacity": 120,
+      "login_credentials": {
+        "email": "warden.lhb@vit.ac.in",
+        "password": "DemoPassword123!"
+      }
+    },
+    {
+      "user_id": 8,
+      "name": "LH-C Associate Warden",
+      "email": "warden.lhc@vit.ac.in",
+      "role": "WARDEN",
+      "is_active": 1,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "employee_id": "WRD006",
+      "phone": "9876543200",
+      "hostel_id": 6,
+      "hostel_name": "LH-C",
+      "hostel_gender": "FEMALE",
+      "hostel_location": "North-East Campus",
+      "hostel_type": "UG",
+      "hostel_capacity": 120,
+      "login_credentials": {
+        "email": "warden.lhc@vit.ac.in",
+        "password": "DemoPassword123!"
+      }
+    }
+  ],
+  "students": [
+    {
+      "user_id": 3,
+      "name": "Student Demo",
+      "email": "student@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T00:34:19.000Z",
+      "student_profile": {
+        "reg_no": "23ABC1001",
+        "academic_rank": 1,
+        "cgpa": 9.5,
+        "gender": "MALE",
+        "department": null,
+        "year": null,
+        "phone": null,
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": null,
+      "counselling_slot": null,
+      "allocation": null,
+      "login_credentials": {
+        "email": "student@vitstudent.ac.in",
+        "password": "student",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 9,
+      "name": "Aarav Sharma",
+      "email": "aarav.sharma24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE1001",
+        "academic_rank": 1,
+        "cgpa": 9.95,
+        "gender": "MALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987650000",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 1,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:02:36.000Z",
+        "end_time": "2026-10-11T19:05:36.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "aarav.sharma24@vitstudent.ac.in",
+        "password": "aarav.sharma24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 10,
+      "name": "Aanya Gupta",
+      "email": "aanya.gupta24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE2001",
+        "academic_rank": 2,
+        "cgpa": 9.93,
+        "gender": "FEMALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987660000",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 2,
+        "session_id": 1,
+        "start_time": "2026-10-11T17:26:09.000Z",
+        "end_time": "2026-10-11T17:29:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "aanya.gupta24@vitstudent.ac.in",
+        "password": "aanya.gupta24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 11,
+      "name": "Vihaan Patel",
+      "email": "vihaan.patel24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE1002",
+        "academic_rank": 3,
+        "cgpa": 9.9,
+        "gender": "MALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987650001",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 3,
+        "session_id": 1,
+        "start_time": "2026-10-11T17:29:09.000Z",
+        "end_time": "2026-10-11T17:32:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "vihaan.patel24@vitstudent.ac.in",
+        "password": "vihaan.patel24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 12,
+      "name": "Diya Verma",
+      "email": "diya.verma24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE2002",
+        "academic_rank": 4,
+        "cgpa": 9.88,
+        "gender": "FEMALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987660001",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 4,
+        "session_id": 1,
+        "start_time": "2026-10-11T17:32:09.000Z",
+        "end_time": "2026-10-11T17:35:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "diya.verma24@vitstudent.ac.in",
+        "password": "diya.verma24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 13,
+      "name": "Vivaan Gupta",
+      "email": "vivaan.gupta24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE1003",
+        "academic_rank": 5,
+        "cgpa": 9.85,
+        "gender": "MALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987650002",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 5,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:01:35.000Z",
+        "end_time": "2026-10-11T19:04:35.000Z",
+        "status": "ACTIVE",
+        "is_active": true
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "vivaan.gupta24@vitstudent.ac.in",
+        "password": "vivaan.gupta24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 14,
+      "name": "Ishita Sharma",
+      "email": "ishita.sharma24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE2003",
+        "academic_rank": 6,
+        "cgpa": 9.83,
+        "gender": "FEMALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987660002",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 6,
+        "session_id": 1,
+        "start_time": "2026-10-11T17:38:09.000Z",
+        "end_time": "2026-10-11T17:41:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "ishita.sharma24@vitstudent.ac.in",
+        "password": "ishita.sharma24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 15,
+      "name": "Aditya Kumar",
+      "email": "aditya.kumar24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE1004",
+        "academic_rank": 7,
+        "cgpa": 9.8,
+        "gender": "MALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987650003",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 7,
+        "session_id": 1,
+        "start_time": "2026-10-11T17:41:09.000Z",
+        "end_time": "2026-10-11T17:44:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "aditya.kumar24@vitstudent.ac.in",
+        "password": "aditya.kumar24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 16,
+      "name": "Riya Sen",
+      "email": "riya.sen24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE2004",
+        "academic_rank": 8,
+        "cgpa": 9.78,
+        "gender": "FEMALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987660003",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 8,
+        "session_id": 1,
+        "start_time": "2026-10-11T17:44:09.000Z",
+        "end_time": "2026-10-11T17:47:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "riya.sen24@vitstudent.ac.in",
+        "password": "riya.sen24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 17,
+      "name": "Reyansh Verma",
+      "email": "reyansh.verma24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE1005",
+        "academic_rank": 9,
+        "cgpa": 9.75,
+        "gender": "MALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987650004",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 9,
+        "session_id": 1,
+        "start_time": "2026-10-11T17:47:09.000Z",
+        "end_time": "2026-10-11T17:50:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "reyansh.verma24@vitstudent.ac.in",
+        "password": "reyansh.verma24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 18,
+      "name": "Saanvi Patel",
+      "email": "saanvi.patel24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE2005",
+        "academic_rank": 10,
+        "cgpa": 9.73,
+        "gender": "FEMALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987660004",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 10,
+        "session_id": 1,
+        "start_time": "2026-10-11T17:50:09.000Z",
+        "end_time": "2026-10-11T17:53:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "saanvi.patel24@vitstudent.ac.in",
+        "password": "saanvi.patel24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 19,
+      "name": "Muhammad Khan",
+      "email": "muhammad.khan24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE1006",
+        "academic_rank": 11,
+        "cgpa": 9.7,
+        "gender": "MALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987650005",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 11,
+        "session_id": 1,
+        "start_time": "2026-10-11T17:53:09.000Z",
+        "end_time": "2026-10-11T17:56:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "muhammad.khan24@vitstudent.ac.in",
+        "password": "muhammad.khan24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 20,
+      "name": "Ananya Iyer",
+      "email": "ananya.iyer24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE2006",
+        "academic_rank": 12,
+        "cgpa": 9.68,
+        "gender": "FEMALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987660005",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 12,
+        "session_id": 1,
+        "start_time": "2026-10-11T17:56:09.000Z",
+        "end_time": "2026-10-11T17:59:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "ananya.iyer24@vitstudent.ac.in",
+        "password": "ananya.iyer24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 21,
+      "name": "Sai Krishna",
+      "email": "sai.krishna24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE1007",
+        "academic_rank": 13,
+        "cgpa": 9.65,
+        "gender": "MALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987650006",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 13,
+        "session_id": 1,
+        "start_time": "2026-10-11T17:59:09.000Z",
+        "end_time": "2026-10-11T18:02:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "sai.krishna24@vitstudent.ac.in",
+        "password": "sai.krishna24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 22,
+      "name": "Kiara Reddy",
+      "email": "kiara.reddy24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE2007",
+        "academic_rank": 14,
+        "cgpa": 9.63,
+        "gender": "FEMALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987660006",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 14,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:02:09.000Z",
+        "end_time": "2026-10-11T18:05:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "kiara.reddy24@vitstudent.ac.in",
+        "password": "kiara.reddy24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 23,
+      "name": "Arjun Reddy",
+      "email": "arjun.reddy24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE1008",
+        "academic_rank": 15,
+        "cgpa": 9.6,
+        "gender": "MALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987650007",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 15,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:05:09.000Z",
+        "end_time": "2026-10-11T18:08:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "arjun.reddy24@vitstudent.ac.in",
+        "password": "arjun.reddy24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 24,
+      "name": "Myra Nair",
+      "email": "myra.nair24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE2008",
+        "academic_rank": 16,
+        "cgpa": 9.58,
+        "gender": "FEMALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987660007",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 16,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:08:09.000Z",
+        "end_time": "2026-10-11T18:11:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "myra.nair24@vitstudent.ac.in",
+        "password": "myra.nair24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 25,
+      "name": "Kabir Singh",
+      "email": "kabir.singh24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE1009",
+        "academic_rank": 17,
+        "cgpa": 9.55,
+        "gender": "MALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987650008",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 17,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:11:09.000Z",
+        "end_time": "2026-10-11T18:14:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "kabir.singh24@vitstudent.ac.in",
+        "password": "kabir.singh24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 26,
+      "name": "Pari Joshi",
+      "email": "pari.joshi24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE2009",
+        "academic_rank": 18,
+        "cgpa": 9.53,
+        "gender": "FEMALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987660008",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 18,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:14:09.000Z",
+        "end_time": "2026-10-11T18:17:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "pari.joshi24@vitstudent.ac.in",
+        "password": "pari.joshi24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 27,
+      "name": "Rohan Joshi",
+      "email": "rohan.joshi24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE1010",
+        "academic_rank": 19,
+        "cgpa": 9.51,
+        "gender": "MALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987650009",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 19,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:17:09.000Z",
+        "end_time": "2026-10-11T18:20:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "rohan.joshi24@vitstudent.ac.in",
+        "password": "rohan.joshi24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 28,
+      "name": "Sara Khan",
+      "email": "sara.khan24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCE2010",
+        "academic_rank": 20,
+        "cgpa": 9.48,
+        "gender": "FEMALE",
+        "department": "BCE",
+        "year": 2,
+        "phone": "987660009",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 20,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:20:09.000Z",
+        "end_time": "2026-10-11T18:23:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "sara.khan24@vitstudent.ac.in",
+        "password": "sara.khan24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 29,
+      "name": "Devansh Nair",
+      "email": "devansh.nair24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BME1011",
+        "academic_rank": 21,
+        "cgpa": 9.46,
+        "gender": "MALE",
+        "department": "BME",
+        "year": 2,
+        "phone": "987650010",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 21,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:23:09.000Z",
+        "end_time": "2026-10-11T18:26:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "devansh.nair24@vitstudent.ac.in",
+        "password": "devansh.nair24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 30,
+      "name": "Navya Malhotra",
+      "email": "navya.malhotra24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCV2011",
+        "academic_rank": 22,
+        "cgpa": 9.43,
+        "gender": "FEMALE",
+        "department": "BCV",
+        "year": 2,
+        "phone": "987660010",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 22,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:26:09.000Z",
+        "end_time": "2026-10-11T18:29:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "navya.malhotra24@vitstudent.ac.in",
+        "password": "navya.malhotra24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 31,
+      "name": "Aryan Mehta",
+      "email": "aryan.mehta24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BME1012",
+        "academic_rank": 23,
+        "cgpa": 9.41,
+        "gender": "MALE",
+        "department": "BME",
+        "year": 2,
+        "phone": "987650011",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 23,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:29:09.000Z",
+        "end_time": "2026-10-11T18:32:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "aryan.mehta24@vitstudent.ac.in",
+        "password": "aryan.mehta24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 32,
+      "name": "Aditi Mehta",
+      "email": "aditi.mehta24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCV2012",
+        "academic_rank": 24,
+        "cgpa": 9.38,
+        "gender": "FEMALE",
+        "department": "BCV",
+        "year": 2,
+        "phone": "987660011",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 24,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:32:09.000Z",
+        "end_time": "2026-10-11T18:35:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "aditi.mehta24@vitstudent.ac.in",
+        "password": "aditi.mehta24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 33,
+      "name": "Dhruv Aggarwal",
+      "email": "dhruv.aggarwal24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BME1013",
+        "academic_rank": 25,
+        "cgpa": 9.36,
+        "gender": "MALE",
+        "department": "BME",
+        "year": 2,
+        "phone": "987650012",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 25,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:35:09.000Z",
+        "end_time": "2026-10-11T18:38:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "dhruv.aggarwal24@vitstudent.ac.in",
+        "password": "dhruv.aggarwal24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 34,
+      "name": "Sneha Rao",
+      "email": "sneha.rao24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCV2013",
+        "academic_rank": 26,
+        "cgpa": 9.33,
+        "gender": "FEMALE",
+        "department": "BCV",
+        "year": 2,
+        "phone": "987660012",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 26,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:38:09.000Z",
+        "end_time": "2026-10-11T18:41:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "sneha.rao24@vitstudent.ac.in",
+        "password": "sneha.rao24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 35,
+      "name": "Ayaan Shah",
+      "email": "ayaan.shah24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BME1014",
+        "academic_rank": 27,
+        "cgpa": 9.31,
+        "gender": "MALE",
+        "department": "BME",
+        "year": 2,
+        "phone": "987650013",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 27,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:41:09.000Z",
+        "end_time": "2026-10-11T18:44:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "ayaan.shah24@vitstudent.ac.in",
+        "password": "ayaan.shah24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 36,
+      "name": "Pooja Aggarwal",
+      "email": "pooja.aggarwal24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCV2014",
+        "academic_rank": 28,
+        "cgpa": 9.28,
+        "gender": "FEMALE",
+        "department": "BCV",
+        "year": 2,
+        "phone": "987660013",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 28,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:44:09.000Z",
+        "end_time": "2026-10-11T18:47:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "pooja.aggarwal24@vitstudent.ac.in",
+        "password": "pooja.aggarwal24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 37,
+      "name": "Ishan Bhat",
+      "email": "ishan.bhat24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BME1015",
+        "academic_rank": 29,
+        "cgpa": 9.26,
+        "gender": "MALE",
+        "department": "BME",
+        "year": 2,
+        "phone": "987650014",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 29,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:47:09.000Z",
+        "end_time": "2026-10-11T18:50:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "ishan.bhat24@vitstudent.ac.in",
+        "password": "ishan.bhat24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 38,
+      "name": "Tanvi Shah",
+      "email": "tanvi.shah24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:16.000Z",
+      "student_profile": {
+        "reg_no": "24BCV2015",
+        "academic_rank": 30,
+        "cgpa": 9.23,
+        "gender": "FEMALE",
+        "department": "BCV",
+        "year": 2,
+        "phone": "987660014",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 30,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:50:09.000Z",
+        "end_time": "2026-10-11T18:53:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "tanvi.shah24@vitstudent.ac.in",
+        "password": "tanvi.shah24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 39,
+      "name": "Shaurya Malhotra",
+      "email": "shaurya.malhotra24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BME1016",
+        "academic_rank": 31,
+        "cgpa": 9.21,
+        "gender": "MALE",
+        "department": "BME",
+        "year": 2,
+        "phone": "987650015",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 31,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:53:09.000Z",
+        "end_time": "2026-10-11T18:56:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "shaurya.malhotra24@vitstudent.ac.in",
+        "password": "shaurya.malhotra24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 40,
+      "name": "Kavya Bhat",
+      "email": "kavya.bhat24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCV2016",
+        "academic_rank": 32,
+        "cgpa": 9.18,
+        "gender": "FEMALE",
+        "department": "BCV",
+        "year": 2,
+        "phone": "987660015",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 32,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:56:09.000Z",
+        "end_time": "2026-10-11T18:59:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "kavya.bhat24@vitstudent.ac.in",
+        "password": "kavya.bhat24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 41,
+      "name": "Atharva Kulkarni",
+      "email": "atharva.kulkarni24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BME1017",
+        "academic_rank": 33,
+        "cgpa": 9.16,
+        "gender": "MALE",
+        "department": "BME",
+        "year": 2,
+        "phone": "987650016",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 33,
+        "session_id": 1,
+        "start_time": "2026-10-11T18:59:09.000Z",
+        "end_time": "2026-10-11T19:02:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "atharva.kulkarni24@vitstudent.ac.in",
+        "password": "atharva.kulkarni24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 42,
+      "name": "Shreya Kulkarni",
+      "email": "shreya.kulkarni24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCV2017",
+        "academic_rank": 34,
+        "cgpa": 9.13,
+        "gender": "FEMALE",
+        "department": "BCV",
+        "year": 2,
+        "phone": "987660016",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 34,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:02:09.000Z",
+        "end_time": "2026-10-11T19:05:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "shreya.kulkarni24@vitstudent.ac.in",
+        "password": "shreya.kulkarni24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 43,
+      "name": "Advait Desai",
+      "email": "advait.desai24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BME1018",
+        "academic_rank": 35,
+        "cgpa": 9.11,
+        "gender": "MALE",
+        "department": "BME",
+        "year": 2,
+        "phone": "987650017",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 35,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:05:09.000Z",
+        "end_time": "2026-10-11T19:08:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "advait.desai24@vitstudent.ac.in",
+        "password": "advait.desai24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 44,
+      "name": "Meera Desai",
+      "email": "meera.desai24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCV2018",
+        "academic_rank": 36,
+        "cgpa": 9.09,
+        "gender": "FEMALE",
+        "department": "BCV",
+        "year": 2,
+        "phone": "987660017",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 36,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:08:09.000Z",
+        "end_time": "2026-10-11T19:11:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "meera.desai24@vitstudent.ac.in",
+        "password": "meera.desai24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 45,
+      "name": "Pranav Rao",
+      "email": "pranav.rao24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BME1019",
+        "academic_rank": 37,
+        "cgpa": 9.06,
+        "gender": "MALE",
+        "department": "BME",
+        "year": 2,
+        "phone": "987650018",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 37,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:11:09.000Z",
+        "end_time": "2026-10-11T19:14:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "pranav.rao24@vitstudent.ac.in",
+        "password": "pranav.rao24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 46,
+      "name": "Divya Kumar",
+      "email": "divya.kumar24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCV2019",
+        "academic_rank": 38,
+        "cgpa": 9.04,
+        "gender": "FEMALE",
+        "department": "BCV",
+        "year": 2,
+        "phone": "987660018",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 38,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:14:09.000Z",
+        "end_time": "2026-10-11T19:17:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "divya.kumar24@vitstudent.ac.in",
+        "password": "divya.kumar24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 47,
+      "name": "Rishabh Iyer",
+      "email": "rishabh.iyer24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BME1020",
+        "academic_rank": 39,
+        "cgpa": 9.01,
+        "gender": "MALE",
+        "department": "BME",
+        "year": 2,
+        "phone": "987650019",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 39,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:17:09.000Z",
+        "end_time": "2026-10-11T19:20:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "rishabh.iyer24@vitstudent.ac.in",
+        "password": "rishabh.iyer24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 48,
+      "name": "Neha Singh",
+      "email": "neha.singh24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCV2020",
+        "academic_rank": 40,
+        "cgpa": 8.99,
+        "gender": "FEMALE",
+        "department": "BCV",
+        "year": 2,
+        "phone": "987660019",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 40,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:20:09.000Z",
+        "end_time": "2026-10-11T19:23:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "neha.singh24@vitstudent.ac.in",
+        "password": "neha.singh24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 49,
+      "name": "Kunal Saxena",
+      "email": "kunal.saxena24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEE1021",
+        "academic_rank": 41,
+        "cgpa": 8.96,
+        "gender": "MALE",
+        "department": "BEE",
+        "year": 2,
+        "phone": "987650020",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 41,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:23:09.000Z",
+        "end_time": "2026-10-11T19:26:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "kunal.saxena24@vitstudent.ac.in",
+        "password": "kunal.saxena24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 50,
+      "name": "Rashi Saxena",
+      "email": "rashi.saxena24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCH2021",
+        "academic_rank": 42,
+        "cgpa": 8.94,
+        "gender": "FEMALE",
+        "department": "BCH",
+        "year": 2,
+        "phone": "987660020",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 42,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:26:09.000Z",
+        "end_time": "2026-10-11T19:29:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "rashi.saxena24@vitstudent.ac.in",
+        "password": "rashi.saxena24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 51,
+      "name": "Siddharth Sen",
+      "email": "siddharth.sen24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEE1022",
+        "academic_rank": 43,
+        "cgpa": 8.91,
+        "gender": "MALE",
+        "department": "BEE",
+        "year": 2,
+        "phone": "987650021",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 43,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:29:09.000Z",
+        "end_time": "2026-10-11T19:32:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "siddharth.sen24@vitstudent.ac.in",
+        "password": "siddharth.sen24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 52,
+      "name": "Swati Mishra",
+      "email": "swati.mishra24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCH2022",
+        "academic_rank": 44,
+        "cgpa": 8.89,
+        "gender": "FEMALE",
+        "department": "BCH",
+        "year": 2,
+        "phone": "987660021",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 44,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:32:09.000Z",
+        "end_time": "2026-10-11T19:35:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "swati.mishra24@vitstudent.ac.in",
+        "password": "swati.mishra24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 53,
+      "name": "Yash Vardhan",
+      "email": "yash.vardhan24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEE1023",
+        "academic_rank": 45,
+        "cgpa": 8.86,
+        "gender": "MALE",
+        "department": "BEE",
+        "year": 2,
+        "phone": "987650022",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 45,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:35:09.000Z",
+        "end_time": "2026-10-11T19:38:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "yash.vardhan24@vitstudent.ac.in",
+        "password": "yash.vardhan24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 54,
+      "name": "Kriti Vardhan",
+      "email": "kriti.vardhan24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCH2023",
+        "academic_rank": 46,
+        "cgpa": 8.84,
+        "gender": "FEMALE",
+        "department": "BCH",
+        "year": 2,
+        "phone": "987660022",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 46,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:38:09.000Z",
+        "end_time": "2026-10-11T19:41:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "kriti.vardhan24@vitstudent.ac.in",
+        "password": "kriti.vardhan24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 55,
+      "name": "Harshit Chauhan",
+      "email": "harshit.chauhan24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEE1024",
+        "academic_rank": 47,
+        "cgpa": 8.81,
+        "gender": "MALE",
+        "department": "BEE",
+        "year": 2,
+        "phone": "987650023",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 47,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:41:09.000Z",
+        "end_time": "2026-10-11T19:44:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "harshit.chauhan24@vitstudent.ac.in",
+        "password": "harshit.chauhan24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 56,
+      "name": "Priya Chauhan",
+      "email": "priya.chauhan24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCH2024",
+        "academic_rank": 48,
+        "cgpa": 8.79,
+        "gender": "FEMALE",
+        "department": "BCH",
+        "year": 2,
+        "phone": "987660023",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 48,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:44:09.000Z",
+        "end_time": "2026-10-11T19:47:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "priya.chauhan24@vitstudent.ac.in",
+        "password": "priya.chauhan24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 57,
+      "name": "Manav Kapoor",
+      "email": "manav.kapoor24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEE1025",
+        "academic_rank": 49,
+        "cgpa": 8.76,
+        "gender": "MALE",
+        "department": "BEE",
+        "year": 2,
+        "phone": "987650024",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 49,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:47:09.000Z",
+        "end_time": "2026-10-11T19:50:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "manav.kapoor24@vitstudent.ac.in",
+        "password": "manav.kapoor24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 58,
+      "name": "Simran Kapoor",
+      "email": "simran.kapoor24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCH2025",
+        "academic_rank": 50,
+        "cgpa": 8.74,
+        "gender": "FEMALE",
+        "department": "BCH",
+        "year": 2,
+        "phone": "987660024",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 50,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:50:09.000Z",
+        "end_time": "2026-10-11T19:53:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "simran.kapoor24@vitstudent.ac.in",
+        "password": "simran.kapoor24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 59,
+      "name": "Tanmay Mishra",
+      "email": "tanmay.mishra24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEE1026",
+        "academic_rank": 51,
+        "cgpa": 8.71,
+        "gender": "MALE",
+        "department": "BEE",
+        "year": 2,
+        "phone": "987650025",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 51,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:53:09.000Z",
+        "end_time": "2026-10-11T19:56:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "tanmay.mishra24@vitstudent.ac.in",
+        "password": "tanmay.mishra24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 60,
+      "name": "Trisha Tiwari",
+      "email": "trisha.tiwari24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCH2026",
+        "academic_rank": 52,
+        "cgpa": 8.69,
+        "gender": "FEMALE",
+        "department": "BCH",
+        "year": 2,
+        "phone": "987660025",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 52,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:56:09.000Z",
+        "end_time": "2026-10-11T19:59:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "trisha.tiwari24@vitstudent.ac.in",
+        "password": "trisha.tiwari24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 61,
+      "name": "Nikhil Nambiar",
+      "email": "nikhil.nambiar24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEE1027",
+        "academic_rank": 53,
+        "cgpa": 8.67,
+        "gender": "MALE",
+        "department": "BEE",
+        "year": 2,
+        "phone": "987650026",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 53,
+        "session_id": 1,
+        "start_time": "2026-10-11T19:59:09.000Z",
+        "end_time": "2026-10-11T20:02:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "nikhil.nambiar24@vitstudent.ac.in",
+        "password": "nikhil.nambiar24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 62,
+      "name": "Urvashi Choudhury",
+      "email": "urvashi.choudhury24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCH2027",
+        "academic_rank": 54,
+        "cgpa": 8.64,
+        "gender": "FEMALE",
+        "department": "BCH",
+        "year": 2,
+        "phone": "987660026",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 54,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:02:09.000Z",
+        "end_time": "2026-10-11T20:05:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "urvashi.choudhury24@vitstudent.ac.in",
+        "password": "urvashi.choudhury24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 63,
+      "name": "Varun Pillai",
+      "email": "varun.pillai24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEE1028",
+        "academic_rank": 55,
+        "cgpa": 8.62,
+        "gender": "MALE",
+        "department": "BEE",
+        "year": 2,
+        "phone": "987650027",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 55,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:05:09.000Z",
+        "end_time": "2026-10-11T20:08:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "varun.pillai24@vitstudent.ac.in",
+        "password": "varun.pillai24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 64,
+      "name": "Vandana Nambiar",
+      "email": "vandana.nambiar24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCH2028",
+        "academic_rank": 56,
+        "cgpa": 8.59,
+        "gender": "FEMALE",
+        "department": "BCH",
+        "year": 2,
+        "phone": "987660027",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 56,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:08:09.000Z",
+        "end_time": "2026-10-11T20:11:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "vandana.nambiar24@vitstudent.ac.in",
+        "password": "vandana.nambiar24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 65,
+      "name": "Kartik Choudhury",
+      "email": "kartik.choudhury24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEE1029",
+        "academic_rank": 57,
+        "cgpa": 8.57,
+        "gender": "MALE",
+        "department": "BEE",
+        "year": 2,
+        "phone": "987650028",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 57,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:11:09.000Z",
+        "end_time": "2026-10-11T20:14:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "kartik.choudhury24@vitstudent.ac.in",
+        "password": "kartik.choudhury24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 66,
+      "name": "Vidya Pillai",
+      "email": "vidya.pillai24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCH2029",
+        "academic_rank": 58,
+        "cgpa": 8.54,
+        "gender": "FEMALE",
+        "department": "BCH",
+        "year": 2,
+        "phone": "987660028",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 58,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:14:09.000Z",
+        "end_time": "2026-10-11T20:17:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "vidya.pillai24@vitstudent.ac.in",
+        "password": "vidya.pillai24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 67,
+      "name": "Ayush Tiwari",
+      "email": "ayush.tiwari24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEE1030",
+        "academic_rank": 59,
+        "cgpa": 8.52,
+        "gender": "MALE",
+        "department": "BEE",
+        "year": 2,
+        "phone": "987650029",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 59,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:17:09.000Z",
+        "end_time": "2026-10-11T20:20:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "ayush.tiwari24@vitstudent.ac.in",
+        "password": "ayush.tiwari24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 68,
+      "name": "Yamini Jain",
+      "email": "yamini.jain24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BCH2030",
+        "academic_rank": 60,
+        "cgpa": 8.49,
+        "gender": "FEMALE",
+        "department": "BCH",
+        "year": 2,
+        "phone": "987660029",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 60,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:20:09.000Z",
+        "end_time": "2026-10-11T20:23:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "yamini.jain24@vitstudent.ac.in",
+        "password": "yamini.jain24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 69,
+      "name": "Chirag Jain",
+      "email": "chirag.jain24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC1031",
+        "academic_rank": 61,
+        "cgpa": 8.47,
+        "gender": "MALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987650030",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 61,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:23:09.000Z",
+        "end_time": "2026-10-11T20:26:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "chirag.jain24@vitstudent.ac.in",
+        "password": "chirag.jain24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 70,
+      "name": "Anjali Pandey",
+      "email": "anjali.pandey24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC2031",
+        "academic_rank": 62,
+        "cgpa": 8.44,
+        "gender": "FEMALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987660030",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 62,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:26:09.000Z",
+        "end_time": "2026-10-11T20:29:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "anjali.pandey24@vitstudent.ac.in",
+        "password": "anjali.pandey24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 71,
+      "name": "Harsh Pandey",
+      "email": "harsh.pandey24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC1032",
+        "academic_rank": 63,
+        "cgpa": 8.42,
+        "gender": "MALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987650031",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 63,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:29:09.000Z",
+        "end_time": "2026-10-11T20:32:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "harsh.pandey24@vitstudent.ac.in",
+        "password": "harsh.pandey24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 72,
+      "name": "Bhavna Hegde",
+      "email": "bhavna.hegde24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC2032",
+        "academic_rank": 64,
+        "cgpa": 8.39,
+        "gender": "FEMALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987660031",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 64,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:32:09.000Z",
+        "end_time": "2026-10-11T20:35:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "bhavna.hegde24@vitstudent.ac.in",
+        "password": "bhavna.hegde24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 73,
+      "name": "Tejas Hegde",
+      "email": "tejas.hegde24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC1033",
+        "academic_rank": 65,
+        "cgpa": 8.37,
+        "gender": "MALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987650032",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 65,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:35:09.000Z",
+        "end_time": "2026-10-11T20:38:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "tejas.hegde24@vitstudent.ac.in",
+        "password": "tejas.hegde24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 74,
+      "name": "Chhavi Sinha",
+      "email": "chhavi.sinha24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC2033",
+        "academic_rank": 66,
+        "cgpa": 8.34,
+        "gender": "FEMALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987660032",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 66,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:38:09.000Z",
+        "end_time": "2026-10-11T20:41:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "chhavi.sinha24@vitstudent.ac.in",
+        "password": "chhavi.sinha24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 75,
+      "name": "Mayank Sinha",
+      "email": "mayank.sinha24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC1034",
+        "academic_rank": 67,
+        "cgpa": 8.32,
+        "gender": "MALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987650033",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 67,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:41:09.000Z",
+        "end_time": "2026-10-11T20:44:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "mayank.sinha24@vitstudent.ac.in",
+        "password": "mayank.sinha24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 76,
+      "name": "Deepa Das",
+      "email": "deepa.das24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC2034",
+        "academic_rank": 68,
+        "cgpa": 8.3,
+        "gender": "FEMALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987660033",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 68,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:44:09.000Z",
+        "end_time": "2026-10-11T20:47:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "deepa.das24@vitstudent.ac.in",
+        "password": "deepa.das24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 77,
+      "name": "Gaurav Das",
+      "email": "gaurav.das24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC1035",
+        "academic_rank": 69,
+        "cgpa": 8.27,
+        "gender": "MALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987650034",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 69,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:47:09.000Z",
+        "end_time": "2026-10-11T20:50:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "gaurav.das24@vitstudent.ac.in",
+        "password": "gaurav.das24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 78,
+      "name": "Garima Bose",
+      "email": "garima.bose24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC2035",
+        "academic_rank": 70,
+        "cgpa": 8.25,
+        "gender": "FEMALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987660034",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 70,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:50:09.000Z",
+        "end_time": "2026-10-11T20:53:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "garima.bose24@vitstudent.ac.in",
+        "password": "garima.bose24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 79,
+      "name": "Akash Bose",
+      "email": "akash.bose24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC1036",
+        "academic_rank": 71,
+        "cgpa": 8.22,
+        "gender": "MALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987650035",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 71,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:53:09.000Z",
+        "end_time": "2026-10-11T20:56:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "akash.bose24@vitstudent.ac.in",
+        "password": "akash.bose24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 80,
+      "name": "Harini Menon",
+      "email": "harini.menon24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC2036",
+        "academic_rank": 72,
+        "cgpa": 8.2,
+        "gender": "FEMALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987660035",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 72,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:56:09.000Z",
+        "end_time": "2026-10-11T20:59:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "harini.menon24@vitstudent.ac.in",
+        "password": "harini.menon24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 81,
+      "name": "Rohit Menon",
+      "email": "rohit.menon24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC1037",
+        "academic_rank": 73,
+        "cgpa": 8.17,
+        "gender": "MALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987650036",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 73,
+        "session_id": 1,
+        "start_time": "2026-10-11T20:59:09.000Z",
+        "end_time": "2026-10-11T21:02:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "rohit.menon24@vitstudent.ac.in",
+        "password": "rohit.menon24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 82,
+      "name": "Ipshita Ghosh",
+      "email": "ipshita.ghosh24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC2037",
+        "academic_rank": 74,
+        "cgpa": 8.15,
+        "gender": "FEMALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987660036",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 74,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:02:09.000Z",
+        "end_time": "2026-10-11T21:05:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "ipshita.ghosh24@vitstudent.ac.in",
+        "password": "ipshita.ghosh24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 83,
+      "name": "Abhinav Ghosh",
+      "email": "abhinav.ghosh24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC1038",
+        "academic_rank": 75,
+        "cgpa": 8.12,
+        "gender": "MALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987650037",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 75,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:05:09.000Z",
+        "end_time": "2026-10-11T21:08:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "abhinav.ghosh24@vitstudent.ac.in",
+        "password": "abhinav.ghosh24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 84,
+      "name": "Janhavi Bhattacharya",
+      "email": "janhavi.bhattacharya24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC2038",
+        "academic_rank": 76,
+        "cgpa": 8.1,
+        "gender": "FEMALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987660037",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 76,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:08:09.000Z",
+        "end_time": "2026-10-11T21:11:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "janhavi.bhattacharya24@vitstudent.ac.in",
+        "password": "janhavi.bhattacharya24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 85,
+      "name": "Parth Bhattacharya",
+      "email": "parth.bhattacharya24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC1039",
+        "academic_rank": 77,
+        "cgpa": 8.07,
+        "gender": "MALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987650038",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 77,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:11:09.000Z",
+        "end_time": "2026-10-11T21:14:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "parth.bhattacharya24@vitstudent.ac.in",
+        "password": "parth.bhattacharya24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 86,
+      "name": "Komal Mukherjee",
+      "email": "komal.mukherjee24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC2039",
+        "academic_rank": 78,
+        "cgpa": 8.05,
+        "gender": "FEMALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987660038",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 78,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:14:09.000Z",
+        "end_time": "2026-10-11T21:17:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "komal.mukherjee24@vitstudent.ac.in",
+        "password": "komal.mukherjee24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 87,
+      "name": "Samarth Mukherjee",
+      "email": "samarth.mukherjee24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC1040",
+        "academic_rank": 79,
+        "cgpa": 8.02,
+        "gender": "MALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987650039",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 79,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:17:09.000Z",
+        "end_time": "2026-10-11T21:20:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "samarth.mukherjee24@vitstudent.ac.in",
+        "password": "samarth.mukherjee24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 88,
+      "name": "Lavanya Chatterjee",
+      "email": "lavanya.chatterjee24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BEC2040",
+        "academic_rank": 80,
+        "cgpa": 8,
+        "gender": "FEMALE",
+        "department": "BEC",
+        "year": 2,
+        "phone": "987660039",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 80,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:20:09.000Z",
+        "end_time": "2026-10-11T21:23:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "lavanya.chatterjee24@vitstudent.ac.in",
+        "password": "lavanya.chatterjee24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 89,
+      "name": "Alok Chatterjee",
+      "email": "alok.chatterjee24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BIT1041",
+        "academic_rank": 81,
+        "cgpa": 7.97,
+        "gender": "MALE",
+        "department": "BIT",
+        "year": 2,
+        "phone": "987650040",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 81,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:23:09.000Z",
+        "end_time": "2026-10-11T21:26:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "alok.chatterjee24@vitstudent.ac.in",
+        "password": "alok.chatterjee24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 90,
+      "name": "Mahika Ganguly",
+      "email": "mahika.ganguly24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BBI2041",
+        "academic_rank": 82,
+        "cgpa": 7.95,
+        "gender": "FEMALE",
+        "department": "BBI",
+        "year": 2,
+        "phone": "987660040",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 82,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:26:09.000Z",
+        "end_time": "2026-10-11T21:29:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "mahika.ganguly24@vitstudent.ac.in",
+        "password": "mahika.ganguly24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 91,
+      "name": "Ankit Ganguly",
+      "email": "ankit.ganguly24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BIT1042",
+        "academic_rank": 83,
+        "cgpa": 7.92,
+        "gender": "MALE",
+        "department": "BIT",
+        "year": 2,
+        "phone": "987650041",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 83,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:29:09.000Z",
+        "end_time": "2026-10-11T21:32:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "ankit.ganguly24@vitstudent.ac.in",
+        "password": "ankit.ganguly24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 92,
+      "name": "Nandini Soni",
+      "email": "nandini.soni24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BBI2042",
+        "academic_rank": 84,
+        "cgpa": 7.9,
+        "gender": "FEMALE",
+        "department": "BBI",
+        "year": 2,
+        "phone": "987660041",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 84,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:32:09.000Z",
+        "end_time": "2026-10-11T21:35:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "nandini.soni24@vitstudent.ac.in",
+        "password": "nandini.soni24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 93,
+      "name": "Chetan Soni",
+      "email": "chetan.soni24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BIT1043",
+        "academic_rank": 85,
+        "cgpa": 7.88,
+        "gender": "MALE",
+        "department": "BIT",
+        "year": 2,
+        "phone": "987650042",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 85,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:35:09.000Z",
+        "end_time": "2026-10-11T21:38:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "chetan.soni24@vitstudent.ac.in",
+        "password": "chetan.soni24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 94,
+      "name": "Pallavi Rawat",
+      "email": "pallavi.rawat24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BBI2043",
+        "academic_rank": 86,
+        "cgpa": 7.85,
+        "gender": "FEMALE",
+        "department": "BBI",
+        "year": 2,
+        "phone": "987660042",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 86,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:38:09.000Z",
+        "end_time": "2026-10-11T21:41:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "pallavi.rawat24@vitstudent.ac.in",
+        "password": "pallavi.rawat24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 95,
+      "name": "Deepanshu Rawat",
+      "email": "deepanshu.rawat24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BIT1044",
+        "academic_rank": 87,
+        "cgpa": 7.83,
+        "gender": "MALE",
+        "department": "BIT",
+        "year": 2,
+        "phone": "987650043",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 87,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:41:09.000Z",
+        "end_time": "2026-10-11T21:44:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "deepanshu.rawat24@vitstudent.ac.in",
+        "password": "deepanshu.rawat24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 96,
+      "name": "Radhika Chawla",
+      "email": "radhika.chawla24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BBI2044",
+        "academic_rank": 88,
+        "cgpa": 7.8,
+        "gender": "FEMALE",
+        "department": "BBI",
+        "year": 2,
+        "phone": "987660043",
+        "allocation_status": "PENDING"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 88,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:44:09.000Z",
+        "end_time": "2026-10-11T21:47:09.000Z",
+        "status": "PENDING",
+        "is_active": false
+      },
+      "allocation": null,
+      "login_credentials": {
+        "email": "radhika.chawla24@vitstudent.ac.in",
+        "password": "radhika.chawla24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 97,
+      "name": "Eeshan Chawla",
+      "email": "eeshan.chawla24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BIT1045",
+        "academic_rank": 89,
+        "cgpa": 7.78,
+        "gender": "MALE",
+        "department": "BIT",
+        "year": 2,
+        "phone": "987650044",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 89,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:47:09.000Z",
+        "end_time": "2026-10-11T21:50:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 1,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "MH-A",
+        "room_number": "102",
+        "floor": 1,
+        "room_type": "1_BED_NON_AC",
+        "has_ac": false
+      },
+      "login_credentials": {
+        "email": "eeshan.chawla24@vitstudent.ac.in",
+        "password": "eeshan.chawla24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 98,
+      "name": "Roshni Ansari",
+      "email": "roshni.ansari24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BBI2045",
+        "academic_rank": 90,
+        "cgpa": 7.75,
+        "gender": "FEMALE",
+        "department": "BBI",
+        "year": 2,
+        "phone": "987660044",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 90,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:50:09.000Z",
+        "end_time": "2026-10-11T21:53:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 7,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "LH-A",
+        "room_number": "102",
+        "floor": 1,
+        "room_type": "1_BED_NON_AC",
+        "has_ac": false
+      },
+      "login_credentials": {
+        "email": "roshni.ansari24@vitstudent.ac.in",
+        "password": "roshni.ansari24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 99,
+      "name": "Farhan Ansari",
+      "email": "farhan.ansari24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BIT1046",
+        "academic_rank": 91,
+        "cgpa": 7.73,
+        "gender": "MALE",
+        "department": "BIT",
+        "year": 2,
+        "phone": "987650045",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 91,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:53:09.000Z",
+        "end_time": "2026-10-11T21:56:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 2,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "MH-A",
+        "room_number": "201",
+        "floor": 2,
+        "room_type": "2_BED_AC",
+        "has_ac": true
+      },
+      "login_credentials": {
+        "email": "farhan.ansari24@vitstudent.ac.in",
+        "password": "farhan.ansari24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 100,
+      "name": "Shalini Naidu",
+      "email": "shalini.naidu24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BBI2046",
+        "academic_rank": 92,
+        "cgpa": 7.7,
+        "gender": "FEMALE",
+        "department": "BBI",
+        "year": 2,
+        "phone": "987660045",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 92,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:56:09.000Z",
+        "end_time": "2026-10-11T21:59:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 8,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "LH-A",
+        "room_number": "201",
+        "floor": 2,
+        "room_type": "2_BED_AC",
+        "has_ac": true
+      },
+      "login_credentials": {
+        "email": "shalini.naidu24@vitstudent.ac.in",
+        "password": "shalini.naidu24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 101,
+      "name": "Girish Naidu",
+      "email": "girish.naidu24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BIT1047",
+        "academic_rank": 93,
+        "cgpa": 7.68,
+        "gender": "MALE",
+        "department": "BIT",
+        "year": 2,
+        "phone": "987650046",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 93,
+        "session_id": 1,
+        "start_time": "2026-10-11T21:59:09.000Z",
+        "end_time": "2026-10-11T22:02:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 3,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "MH-A",
+        "room_number": "202",
+        "floor": 2,
+        "room_type": "2_BED_NON_AC",
+        "has_ac": false
+      },
+      "login_credentials": {
+        "email": "girish.naidu24@vitstudent.ac.in",
+        "password": "girish.naidu24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 102,
+      "name": "Tanisha Gokhale",
+      "email": "tanisha.gokhale24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BBI2047",
+        "academic_rank": 94,
+        "cgpa": 7.65,
+        "gender": "FEMALE",
+        "department": "BBI",
+        "year": 2,
+        "phone": "987660046",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 94,
+        "session_id": 1,
+        "start_time": "2026-10-11T22:02:09.000Z",
+        "end_time": "2026-10-11T22:05:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 9,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "LH-A",
+        "room_number": "202",
+        "floor": 2,
+        "room_type": "2_BED_NON_AC",
+        "has_ac": false
+      },
+      "login_credentials": {
+        "email": "tanisha.gokhale24@vitstudent.ac.in",
+        "password": "tanisha.gokhale24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 103,
+      "name": "Hitesh Gokhale",
+      "email": "hitesh.gokhale24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BIT1048",
+        "academic_rank": 95,
+        "cgpa": 7.63,
+        "gender": "MALE",
+        "department": "BIT",
+        "year": 2,
+        "phone": "987650047",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 95,
+        "session_id": 1,
+        "start_time": "2026-10-11T22:05:09.000Z",
+        "end_time": "2026-10-11T22:08:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 4,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "MH-A",
+        "room_number": "202",
+        "floor": 2,
+        "room_type": "2_BED_NON_AC",
+        "has_ac": false
+      },
+      "login_credentials": {
+        "email": "hitesh.gokhale24@vitstudent.ac.in",
+        "password": "hitesh.gokhale24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 104,
+      "name": "Utkarsha Patil",
+      "email": "utkarsha.patil24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BBI2048",
+        "academic_rank": 96,
+        "cgpa": 7.6,
+        "gender": "FEMALE",
+        "department": "BBI",
+        "year": 2,
+        "phone": "987660047",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 96,
+        "session_id": 1,
+        "start_time": "2026-10-11T22:08:09.000Z",
+        "end_time": "2026-10-11T22:11:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 10,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "LH-A",
+        "room_number": "202",
+        "floor": 2,
+        "room_type": "2_BED_NON_AC",
+        "has_ac": false
+      },
+      "login_credentials": {
+        "email": "utkarsha.patil24@vitstudent.ac.in",
+        "password": "utkarsha.patil24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 105,
+      "name": "Jayesh Patil",
+      "email": "jayesh.patil24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BIT1049",
+        "academic_rank": 97,
+        "cgpa": 7.58,
+        "gender": "MALE",
+        "department": "BIT",
+        "year": 2,
+        "phone": "987650048",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 97,
+        "session_id": 1,
+        "start_time": "2026-10-11T22:11:09.000Z",
+        "end_time": "2026-10-11T22:14:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 5,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "MH-A",
+        "room_number": "301",
+        "floor": 3,
+        "room_type": "4_BED_AC",
+        "has_ac": true
+      },
+      "login_credentials": {
+        "email": "jayesh.patil24@vitstudent.ac.in",
+        "password": "jayesh.patil24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 106,
+      "name": "Vaishnavi Yadav",
+      "email": "vaishnavi.yadav24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BBI2049",
+        "academic_rank": 98,
+        "cgpa": 7.55,
+        "gender": "FEMALE",
+        "department": "BBI",
+        "year": 2,
+        "phone": "987660048",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "FLEXIBLE",
+        "study_habits": "MUSIC",
+        "cleanliness": "RELAXED",
+        "noise_tolerance": "HIGH",
+        "social_preference": "EXTROVERT",
+        "temperature_preference": "FAN_ONLY",
+        "guest_preference": "FREQUENTLY"
+      },
+      "counselling_slot": {
+        "slot_id": 98,
+        "session_id": 1,
+        "start_time": "2026-10-11T22:14:09.000Z",
+        "end_time": "2026-10-11T22:17:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 11,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "LH-A",
+        "room_number": "301",
+        "floor": 3,
+        "room_type": "4_BED_AC",
+        "has_ac": true
+      },
+      "login_credentials": {
+        "email": "vaishnavi.yadav24@vitstudent.ac.in",
+        "password": "vaishnavi.yadav24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 107,
+      "name": "Lokesh Yadav",
+      "email": "lokesh.yadav24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BIT1050",
+        "academic_rank": 99,
+        "cgpa": 7.53,
+        "gender": "MALE",
+        "department": "BIT",
+        "year": 2,
+        "phone": "987650049",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "EARLY_BIRD",
+        "study_habits": "SILENT",
+        "cleanliness": "HIGH",
+        "noise_tolerance": "LOW",
+        "social_preference": "INTROVERT",
+        "temperature_preference": "AC_LOVER",
+        "guest_preference": "RARELY"
+      },
+      "counselling_slot": {
+        "slot_id": 99,
+        "session_id": 1,
+        "start_time": "2026-10-11T22:17:09.000Z",
+        "end_time": "2026-10-11T22:20:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 6,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "MH-A",
+        "room_number": "301",
+        "floor": 3,
+        "room_type": "4_BED_AC",
+        "has_ac": true
+      },
+      "login_credentials": {
+        "email": "lokesh.yadav24@vitstudent.ac.in",
+        "password": "lokesh.yadav24",
+        "note": "Password is set to root part of email"
+      }
+    },
+    {
+      "user_id": 108,
+      "name": "Zoya Siddiqui",
+      "email": "zoya.siddiqui24@vitstudent.ac.in",
+      "role": "STUDENT",
+      "is_active": true,
+      "created_at": "2026-10-11T17:20:17.000Z",
+      "student_profile": {
+        "reg_no": "24BBI2050",
+        "academic_rank": 100,
+        "cgpa": 7.5,
+        "gender": "FEMALE",
+        "department": "BBI",
+        "year": 2,
+        "phone": "987660049",
+        "allocation_status": "CONFIRMED"
+      },
+      "compatibility_profile": {
+        "sleep_schedule": "NIGHT_OWL",
+        "study_habits": "GROUP",
+        "cleanliness": "MODERATE",
+        "noise_tolerance": "MODERATE",
+        "social_preference": "AMBIVERT",
+        "temperature_preference": "MODERATE",
+        "guest_preference": "OCCASIONALLY"
+      },
+      "counselling_slot": {
+        "slot_id": 100,
+        "session_id": 1,
+        "start_time": "2026-10-11T22:20:09.000Z",
+        "end_time": "2026-10-11T22:23:09.000Z",
+        "status": "COMPLETED",
+        "is_active": false
+      },
+      "allocation": {
+        "allocation_id": 12,
+        "allocation_type": "SELF",
+        "status": "CONFIRMED",
+        "allocated_at": "2026-10-11T17:20:17.000Z",
+        "confirmed_at": "2026-10-11T17:20:17.000Z",
+        "locked_at": null,
+        "hostel": "LH-A",
+        "room_number": "301",
+        "floor": 3,
+        "room_type": "4_BED_AC",
+        "has_ac": true
+      },
+      "login_credentials": {
+        "email": "zoya.siddiqui24@vitstudent.ac.in",
+        "password": "zoya.siddiqui24",
+        "note": "Password is set to root part of email"
+      }
+    }
+  ]
+}
