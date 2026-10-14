@@ -8,13 +8,16 @@ Intelligent Hostel Counselling & Allocation System (IHCAS) is a full-stack hoste
 - Administrators: Configure sessions, import data, and monitor allocations.
 - Wardens: Manage hostels, process leave/room-change requests.
 
-**Technical Stack:**
-- **Frontend:** React with JSX (Planned)
-- **Backend:** Node.js + Express (Implemented Foundation)
-- **Database:** MySQL with InnoDB (Implemented Schema & Setup)
-- **Testing:** Jest, Supertest
+### Technology Stack Summary
 
-**Current Status:** Phase 13 (Comprehensive Test Data and Functional Validation) is Complete.
+| Layer / Tier | Core Technologies | Primary Responsibilities |
+| :--- | :--- | :--- |
+| **Presentation Layer (Tier 1)** | React 19, Vite, React Router v7, Vanilla CSS, Axios | Single-page application, role-based layouts, real-time 3-minute counselling timer |
+| **Application Layer (Tier 2)** | Node.js, Express.js, Zod, JWT (HttpOnly), Bcrypt.js, Nodemailer | RESTful API, authentication & RBAC, input validation, queue scheduling & atomic allocation locking |
+| **Data Layer (Tier 3)** | MySQL 8 (InnoDB), `mysql2/promise` | Authoritative relational persistence, connection pooling, ACID transactions & row-level locks |
+| **Testing & Quality Assurance** | Jest, Supertest, 39-Point QA Suite | Automated API integration tests, unit verification, and functional regression validation |
+
+*(See [Section E](#e-technology-stack--3-tier-system-architecture) for full architectural specifications, data flows, and component responsibilities).*
 
 ## B. Feature and Phase Status
 - **Phase 0: Repository Audit and Project Setup** - ✅ Complete
@@ -147,37 +150,184 @@ ihcas/
         └── tests/             # Jest tests
 ```
 
-## E. System Architecture
+## E. Technology Stack & 3-Tier System Architecture
+
+IHCAS is engineered as an enterprise-grade, decoupled **3-Tier Client-Server Architecture** designed to guarantee strict separation of concerns, transactional integrity, concurrency safety, and role-based operational isolation.
 
 ```mermaid
-flowchart TD
-    subgraph Client [Clients - Planned]
-        Student[Student UI]
-        Admin[Admin UI]
-        Warden[Warden UI]
+flowchart TB
+    %% ==========================================
+    %% TIER 1: PRESENTATION LAYER
+    %% ==========================================
+    subgraph Tier1 ["Tier 1: Presentation Tier (Client Layer)"]
+        direction TB
+        Browser["User Web Browser (Desktop / Tablet / Mobile)"]
+        subgraph ReactApp ["React 19 Single Page Application (Vite 8)"]
+            PublicViews["Public Views: Landing Page (/) • Sign In (/login)"]
+            subgraph Shells ["Role-Specific Protected Application Shells"]
+                StudentShell["Student Shell (/dashboard/student & /counselling)"]
+                WardenShell["Warden Shell (/dashboard/warden)"]
+                AdminShell["Admin Shell (/dashboard/admin)"]
+            end
+            ClientState["Contexts & State: AuthContext • Axios Client • Server Timer Sync"]
+            DesignTokens["Design System: Vanilla CSS Tokens (Charcoal #121417 / Lime #A3E635)"]
+        end
+        Browser <--> ReactApp
     end
 
-    subgraph Backend [Node.js Express Backend - Implemented Foundation]
-        App[App / Middlewares]
-        Routes[API Routes]
-        Val[Zod Validation]
-        EH[Error Handler]
-        App --> Val
-        App --> Routes
-        App --> EH
+    %% ==========================================
+    %% TIER 2: APPLICATION / BUSINESS LOGIC LAYER
+    %% ==========================================
+    subgraph Tier2 ["Tier 2: Application / Logic Tier (Server Layer)"]
+        direction TB
+        subgraph Gateway ["Express HTTP Gateway & Middleware Pipeline"]
+            CORS["CORS Policy (withCredentials: true)"]
+            RateLimit["Rate Limiting (Login Brute-Force Guard)"]
+            CookieAuth["Cookie Parser & JWT Verification"]
+            RBAC["Role-Based Access Control (requireRole)"]
+            ZodVal["Zod Schema Input Validation"]
+            ErrHandler["Centralized Error Handler (No Stack Bleeds)"]
+        end
+
+        subgraph Modules ["Modular Business Logic & Domain Controllers"]
+            AuthMod["Auth Module (Domain Policy @vitstudent / @vit, Bcrypt.js)"]
+            CounsellingMod["Counselling Engine (Rank Queue, 3-Min Timer, Batch Size <= 20)"]
+            AllocationMod["Allocation Engine (Concurrency Control, Room Locking)"]
+            OTPMod["Roommate OTP Engine (Cryptographic Hash, 10-Min Expiry)"]
+            InventoryMod["Inventory Manager (Gender Prefixes MH-/LH-, Capacity)"]
+            RequestsMod["Requests Review (Warden Hostel Isolation, Status Transitions)"]
+            NotifMod["Notification & Announcement Broadcaster"]
+        end
+
+        Gateway --> Modules
     end
 
-    subgraph Database [MySQL - Implemented]
-        DB[(ihcas_dev)]
-        TestDB[(ihcas_test_db)]
+    %% ==========================================
+    %% TIER 3: DATA / PERSISTENCE LAYER
+    %% ==========================================
+    subgraph Tier3 ["Tier 3: Data Tier (Persistence Layer)"]
+        direction TB
+        Pool["MySQL Connection Pool (mysql2/promise)"]
+        subgraph MySQLDB ["MySQL 8 Relational Database (InnoDB Engine)"]
+            TablesCore["User & Profiles: USER • STUDENT • WARDEN • ADMIN"]
+            TablesInventory["Hostel & Rooms: HOSTEL • ROOM • ROOM_TYPE"]
+            TablesCounselling["Queue & Sessions: COUNSELLING_SESSION • COUNSELLING_SLOT"]
+            TablesAllocation["Allocations & Security: ALLOCATION • OTP_VERIFICATION"]
+            TablesRequests["Workflow Requests: LEAVE • ROOM_CHANGE • MESS_CHANGE • COMPLAINT"]
+            TablesAudit["Messaging: NOTIFICATION"]
+        end
+        Pool --> MySQLDB
     end
-    
-    Student -.->|HTTP| App
-    Admin -.->|HTTP| App
-    Warden -.->|HTTP| App
-    Routes --> DB
+
+    %% ==========================================
+    %% EXTERNAL SERVICES / ADAPTERS
+    %% ==========================================
+    subgraph External ["External Services & Microservice Adapters"]
+        SMTP["Email / OTP Delivery Service (Nodemailer / SMTP)"]
+        AI["AI Roommate Compatibility Service (Teammate-Owned)"]
+    end
+
+    %% Communication Flows
+    ReactApp -- "HTTPS / REST (JSON) + HttpOnly Cookies" --> Gateway
+    Modules -- "Parameterized SQL (Prepared Statements) / ACID Transactions" --> Pool
+    OTPMod -.->|"Email Dispatch"| SMTP
+    Modules -.->|"HTTP REST (Recommendations Only)"| AI
 ```
-*(Dotted lines indicate planned communication, solid lines indicate implemented foundation).*
+
+---
+
+### 1. Comprehensive Technology Stack
+
+| Layer / Tier | Technology / Library | Version / Runtime | Core Architectural Responsibility |
+| :--- | :--- | :--- | :--- |
+| **Tier 1: Presentation** | **React** | `^19.0.0` | Declarative UI rendering, reactive component hierarchy, state-driven user interactions. |
+| | **Vite** | `^8.3.4` | Ultra-fast development server, HMR, optimized production tree-shaking and asset bundling. |
+| | **React Router DOM** | `^7.3.0` | Declarative SPA client-side routing, nested layouts, and route security interceptors (`ProtectedRoute`). |
+| | **Axios** | `^1.8.2` | Promise-based HTTP client configured with `withCredentials: true` for automatic secure cookie transport. |
+| | **Vanilla CSS** | Standard CSS3 | Custom design system tokens (Charcoal `#121417`, Soft grey `#F4F5F6`, Lime `#A3E635`), mobile drawer, data tables. |
+| **Tier 2: Application** | **Node.js** | `>=20.0.0` (LTS / v24) | High-performance asynchronous non-blocking event-driven JavaScript server runtime. |
+| | **Express.js** | `^4.21.2` | Minimalist web application framework providing RESTful routing and middleware chaining. |
+| | **Zod** | `^3.24.2` | Type-safe runtime schema definition and strict request validation (`req.body`, `req.query`, `req.params`). |
+| | **JSON Web Token** | `^9.0.2` | Stateless signed session authentication tokens stored in secure `HttpOnly`, `SameSite` browser cookies. |
+| | **Bcrypt.js** | `^2.4.3` | Cryptographic password hashing using adaptive salt rounds (cost factor 10). |
+| | **Nodemailer** | `^6.9.16` | Secure transport adapter for delivering 6-digit cryptographic OTPs and notifications to university emails. |
+| | **Crypto (Native)** | Node.js Built-in | Cryptographic random 6-digit OTP generation and SHA-256 OTP hashing. |
+| | **Express Rate Limit**| `^7.5.0` | Protection against denial-of-service and brute-force credential stuffing attacks on authentication routes. |
+| | **Cookie-Parser** | `^1.4.7` | Secure extraction and parsing of serialized HttpOnly session tokens from request headers. |
+| | **CORS** | `^2.8.5` | Cross-Origin Resource Sharing middleware restricting API access to authorized frontend origins. |
+| **Tier 3: Data Tier** | **MySQL Server** | `8.0+` | Authoritative relational SQL storage engine utilizing the **InnoDB** storage engine for full ACID transaction compliance. |
+| | **mysql2 / promise** | `^3.13.0` | High-throughput MySQL client supporting connection pooling, prepared statements, and async/await transactions. |
+| **Testing & Tooling** | **Jest** | `^29.7.0` | JavaScript testing framework executing unit and integration test suites against isolated test environments. |
+| | **Supertest** | `^7.0.0` | Fluent programmatic HTTP assertions for end-to-end endpoint verification. |
+
+---
+
+### 2. Tier-by-Tier Architectural Breakdown
+
+#### Tier 1: Presentation Layer (Client Tier)
+The presentation layer is implemented as a modern React Single Page Application (SPA) designed around strict role boundaries and responsive usability:
+1. **Public Routes & Authentication**:
+   - **Landing Page (`/`)**: Confident public portal introducing the system, merit-based counselling features, process breakdown, and authorized domain guidelines.
+   - **Login Page (`/login`)**: Split-panel authentication interface with inline validation, password toggle, and clear feedback.
+2. **Role-Specific Application Shells**:
+   - **Student Portal (`StudentLayout`)**: Persistent charcoal left navigation bar with direct links to `Dashboard`, `Enter Counselling`, `My Requests`, and `Notifications`. Displays live student identity (`Name`, `Reg No`, `Academic Rank`, `CGPA`).
+   - **Counselling Live Room (`/counselling`)**: Standalone live room featuring a **server-authoritative 3-minute timer** computed from `end_time`, live queue positioning (`#1`), gender-filtered room browser, and interactive 6-digit email OTP roommate verification.
+   - **Warden Portal (`WardenLayout`)**: Scoped to the warden's assigned block (e.g. `MH-A`). Provides review tables for leave, room-change (with live room re-assignment), mess-change, and maintenance complaints, plus hostel announcement broadcasting.
+   - **Admin Workspace (`AdminLayout`)**: System-wide dashboard displaying global campus KPIs, batch-restricted slot generation (max 20 per batch), new hostel registration with strict naming checks (`MH-` / `LH-`), and upcoming analytics navigation.
+3. **Security Interceptors (`ProtectedRoute`)**:
+   - Client routes verify the authenticated `user` and `role` before mounting components. Unauthenticated access redirects immediately to `/login`. Unauthorized role attempts route to `/unauthorized`.
+
+#### Tier 2: Application / Business Logic Layer (Server Tier)
+The application layer acts as the authoritative decision-maker and gatekeeper. The frontend never accesses the database directly; every operation passes through the Express middleware pipeline and domain controllers:
+1. **Middleware Pipeline**:
+   - **Security Headers & CORS**: Strict origin whitelisting (`http://localhost:5173`) with credential acceptance.
+   - **Rate Limiting**: Throttles repetitive requests to prevent credential abuse.
+   - **Authentication (`requireAuth`)**: Verifies JWT signature from HttpOnly cookie and binds sanitized user identity to `req.user`.
+   - **Authorization (`requireRole`)**: Restricts routes to `STUDENT`, `WARDEN`, or `ADMIN`.
+   - **Validation (`validate(schema)`)**: Rejects invalid payloads before touching business controllers.
+   - **Centralized Error Handling**: Logs operational errors and returns structured JSON responses without leaking database internals or stack traces.
+2. **Core Business Engines**:
+   - **Counselling Queue Engine**: Generates slots strictly sorted by `academic_rank ASC`, `cgpa DESC`, and `student_id ASC`. Enforces the batch ceiling of at most 20 students. Passively expires timed-out slots (`checkAndExpireSlot`) and preserves original priority upon re-entry.
+   - **Atomic Room Allocation Engine**: Utilizes database transactions with pessimistic row locking (`SELECT ... FOR UPDATE` on `STUDENT` and `ROOM`). Prevents race conditions, overbooking, double allocations, and capacity violations.
+   - **Cryptographic Roommate Verification Engine**: Issues random 6-digit OTPs hashed with SHA-256 (`OTP_VERIFICATION`), delivered to roommates' official university emails with 10-minute validity and 3-attempt lockouts.
+   - **Hostel Scope & Gender Isolator**: Injects `rm.hostel_id = wardens[0].hostel_id` on all warden queries. Restricts boys to `MH-*` hostels and girls to `LH-*` hostels across all modules.
+
+#### Tier 3: Data Tier (Persistence Layer)
+The persistence layer guarantees durable, relational storage with strict transactional guarantees:
+1. **Relational Schema & Constraints**:
+   - Enforced by MySQL 8 with the **InnoDB** storage engine.
+   - Foreign key constraints with `RESTRICT` and `CASCADE` ensure orphan records are impossible.
+   - Unique indexes guarantee single allocations per student and unique registration numbers.
+2. **Transaction Isolation & Concurrency**:
+   - Multi-step allocation and room-change operations run in `START TRANSACTION ... COMMIT` blocks.
+   - Row-level locking serializes concurrent booking attempts for the same room without deadlocks.
+3. **Environment Isolation**:
+   - **`ihcas_dev`**: Development database housing 100+ simulated student profiles, 6 hostels, 60 rooms, and active counselling sessions.
+   - **`ihcas_test_db`**: Isolated database rebuilt on-demand during automated Jest integration test suites, preventing test data from contaminating local development.
+
+---
+
+### 3. Data Flow & Cross-Tier Communication Protocol
+
+```text
+[ Browser / Client ]  
+       │  ▲
+       │  │  1. HTTPS REST / JSON (Credentials Included)
+       ▼  │
+[ Express API Gateway ]
+       │  ▲
+       │  │  2. Pipeline: CORS -> RateLimit -> JWT Cookie Auth -> RBAC -> Zod Schema Validation
+       ▼  │
+[ Domain Controller & Logic ]  ─────► [ Nodemailer / SMTP ] (Sends Roommate OTP)
+       │  ▲
+       │  │  3. Parameterized SQL Queries (mysql2/promise Pool) + ACID Transactions (FOR UPDATE)
+       ▼  │
+[ MySQL InnoDB Database ]
+```
+
+1. **Client to Server**: Requests are serialized as JSON over HTTP/HTTPS with automatic HttpOnly JWT cookie inclusion (`credentials: 'include'`).
+2. **Server to Database**: Queries utilize prepared statements with parameter substitution (`?`), eliminating SQL injection vulnerabilities.
+3. **Database to Client**: Responses flow back through controllers, returning standardized `{ success: true, data: { ... } }` or `{ success: false, error: { message: '...' } }` envelopes.
 
 ## F. API Documentation
 
