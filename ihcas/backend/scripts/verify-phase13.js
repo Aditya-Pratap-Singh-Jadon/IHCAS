@@ -135,7 +135,7 @@ async function runVerification() {
     const boy1 = seededStudents.find(s => s.academic_rank === 1);
     const boy1LoginRes = await request(app)
       .post('/api/auth/login')
-      .send({ email: boy1.email, password: DEMO_PW });
+      .send({ email: boy1.email, password: boy1.email.split('@')[0] });
     assert(boy1LoginRes.status === 200 && boy1LoginRes.body.data.user.role === 'STUDENT', `Boy Rank 1 (${boy1.email}) login succeeds with STUDENT role`);
     const boy1Cookie = boy1LoginRes.headers['set-cookie'];
 
@@ -143,7 +143,7 @@ async function runVerification() {
     const girl1 = seededStudents.find(s => s.academic_rank === 2);
     const girl1LoginRes = await request(app)
       .post('/api/auth/login')
-      .send({ email: girl1.email, password: DEMO_PW });
+      .send({ email: girl1.email, password: girl1.email.split('@')[0] });
     assert(girl1LoginRes.status === 200 && girl1LoginRes.body.data.user.role === 'STUDENT', `Girl Rank 2 (${girl1.email}) login succeeds with STUDENT role`);
     const girl1Cookie = girl1LoginRes.headers['set-cookie'];
 
@@ -219,7 +219,7 @@ async function runVerification() {
     const prematureStudent = futureSlots[0];
     const prematureLoginRes = await request(app)
       .post('/api/auth/login')
-      .send({ email: prematureStudent.email, password: DEMO_PW });
+      .send({ email: prematureStudent.email, password: prematureStudent.email.split('@')[0] });
     const prematureCookie = prematureLoginRes.headers['set-cookie'];
 
     const prematureActivateRes = await request(app)
@@ -300,7 +300,7 @@ async function runVerification() {
     const boy89 = seededStudents.find(s => s.academic_rank === 89);
     const boy89LoginRes = await request(app)
       .post('/api/auth/login')
-      .send({ email: boy89.email, password: DEMO_PW });
+      .send({ email: boy89.email, password: boy89.email.split('@')[0] });
     const boy89Cookie = boy89LoginRes.headers['set-cookie'];
 
     const dupAllocRes = await request(app)

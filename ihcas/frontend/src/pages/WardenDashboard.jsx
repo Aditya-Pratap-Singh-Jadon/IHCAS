@@ -2,22 +2,14 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Building2 } from 'lucide-react';
 import api from '../api/client';
-import { useAuth } from '../contexts/AuthContext';
 
 export default function WardenDashboard() {
-  const { user } = useAuth();
   const [searchParams, setSearchParams] = useSearchParams();
   const activeTab = searchParams.get('tab') || 'overview';
 
   // Primary Data
   const [data, setData] = useState(null);
   const [rooms, setRooms] = useState([]);
-  const [requestHistory, setRequestHistory] = useState({
-    leave: [],
-    room_change: [],
-    mess_change: [],
-    complaints: []
-  });
 
   // UI state
   const [loading, setLoading] = useState(true);
@@ -36,25 +28,15 @@ export default function WardenDashboard() {
 
   const fetchWardenData = async () => {
     try {
-      // Backend automatically scopes /dashboard/warden, /inventory/rooms, and /requests/* to this warden's assigned hostel
-      const [resDash, resRooms, leaveRes, roomReqRes, messRes, compRes] = await Promise.all([
+      // Backend automatically scopes /dashboard/warden and /inventory/rooms to this warden's assigned hostel
+      const [resDash, resRooms] = await Promise.all([
         api.get('/dashboard/warden'),
-        api.get('/inventory/rooms').catch(() => ({ data: { data: [] } })),
-        api.get('/requests/leave').catch(() => ({ data: { data: [] } })),
-        api.get('/requests/room-change').catch(() => ({ data: { data: [] } })),
-        api.get('/requests/mess-change').catch(() => ({ data: { data: [] } })),
-        api.get('/requests/complaints').catch(() => ({ data: { data: [] } }))
+        api.get('/inventory/rooms').catch(() => ({ data: { data: [] } }))
       ]);
 
       setData(resDash.data.data);
       // All rooms returned here belong strictly to this warden's assigned hostel
       setRooms(resRooms.data?.data || []);
-      setRequestHistory({
-        leave: leaveRes.data?.data || [],
-        room_change: roomReqRes.data?.data || [],
-        mess_change: messRes.data?.data || [],
-        complaints: compRes.data?.data || []
-      });
     } catch (err) {
       console.error(err);
       setFeedback({

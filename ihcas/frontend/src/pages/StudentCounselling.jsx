@@ -2,7 +2,6 @@ import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Check } from 'lucide-react';
 import api from '../api/client';
-import { useAuth } from '../contexts/AuthContext';
 
 function ClockIcon() {
   return (
@@ -44,7 +43,6 @@ function AlertTriangleIcon() {
 }
 
 export default function StudentCounselling() {
-  const { user } = useAuth();
 
   // State
   const [loading, setLoading] = useState(true);
@@ -345,7 +343,6 @@ export default function StudentCounselling() {
   const hasSlot = counsellingStatus?.has_slot;
   const isPending = hasSlot && counsellingStatus.status === 'PENDING';
   const isActive = hasSlot && counsellingStatus.status === 'ACTIVE' && timeRemainingSeconds !== null && timeRemainingSeconds > 0;
-  const isCompleted = hasSlot && counsellingStatus.status === 'COMPLETED';
 
   // Activation eligibility: queue position is 1 OR current time is >= start_time
   const isEligibleToActivate = isPending && (
