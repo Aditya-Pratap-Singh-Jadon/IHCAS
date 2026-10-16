@@ -97,6 +97,7 @@ export default function AdminLayout() {
   };
 
   const getPageTitle = () => {
+    if (location.pathname === '/dashboard/admin/analytics') return 'System-Wide Analytics';
     switch (activeTab) {
       case 'inventory': return 'Hostel & Room Inventory';
       case 'counselling': return 'Counselling Operations';
@@ -174,17 +175,15 @@ export default function AdminLayout() {
 
           <div className="student-nav-group-label" style={{ marginTop: '0.75rem' }}>Insights</div>
 
-          {/* Analytics destination kept distinct per Requirement 3.E */}
-          <div
-            className="student-nav-link"
-            style={{ opacity: 0.65, cursor: 'not-allowed' }}
-            title="System Analytics is scheduled for Phase 5"
+          <NavLink
+            to="/dashboard/admin/analytics"
+            className={`student-nav-link ${location.pathname === '/dashboard/admin/analytics' ? 'active' : ''}`}
+            onClick={() => setSidebarOpen(false)}
             id="admin-nav-analytics"
           >
             <BarChartIcon />
             <span>Analytics</span>
-            <span className="student-nav-badge-pulse" style={{ background: 'var(--color-charcoal-700)', color: 'var(--color-lime-400)' }}>Phase 5</span>
-          </div>
+          </NavLink>
         </nav>
 
         {/* Sidebar Footer / User Profile */}

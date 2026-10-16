@@ -11,6 +11,7 @@ import WardenLayout from './components/WardenLayout';
 import AdminLayout from './components/AdminLayout';
 import WardenDashboard from './pages/WardenDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminAnalytics from './pages/AdminAnalytics';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route element={<ProtectedRoute allowedRoles={['ADMIN']} />}>
             <Route element={<AdminLayout />}>
               <Route path="/dashboard/admin" element={<AdminDashboard />} />
+              <Route path="/dashboard/admin/analytics" element={<AdminAnalytics />} />
             </Route>
           </Route>
           
